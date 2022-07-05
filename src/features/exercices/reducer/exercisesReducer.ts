@@ -3,33 +3,33 @@ import { exercisesActionsCreators } from "./exercisesActionsCreators";
 import { iExercisesState } from "./iExercisesState";
 
 const INITIAL_STATE: iExercisesState = {
-  exercises: [],
+  data: [],
 };
 
-export const notesReducer = createReducer<iExercisesState>(
+export const exercisesReducer = createReducer<iExercisesState>(
   INITIAL_STATE,
   (builder) => {
     return builder
       .addCase(exercisesActionsCreators.load, (state, action) => {
         return {
           ...state,
-          exercises: action.payload,
+          data: action.payload,
         };
       })
       .addCase(exercisesActionsCreators.add, (state, action) => {
-        return { ...state, exercises: [...state.exercises, action.payload] };
+        return { ...state, data: [...state.data, action.payload] };
       })
       .addCase(exercisesActionsCreators.update, (state, action) => {
-        const exercises = state.exercises.map((exercise) =>
+        const data = state.data.map((exercise) =>
           exercise.id === action.payload.id ? action.payload : exercise
         );
-        return { ...state, exercises };
+        return { ...state, data };
       })
       .addCase(exercisesActionsCreators.delete, (state, action) => {
-        const exercises = state.exercises.filter(
+        const data = state.data.filter(
           (exercise) => exercise.id !== action.payload
         );
-        return { ...state, exercises };
+        return { ...state, data };
       })
       .addDefaultCase((state) => {
         return state;
