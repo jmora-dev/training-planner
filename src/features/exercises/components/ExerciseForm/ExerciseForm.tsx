@@ -1,8 +1,9 @@
 import { SyntheticEvent, useState } from "react";
 import { iExercise } from "../../interfaces/iExercise";
 
-interface iExerciceFormProps {
+interface iExerciseFormProps {
   initialData?: Partial<iExercise>;
+  onSave: (exercise: Partial<iExercise>) => void;
 }
 
 const INIT_DATA = {
@@ -16,11 +17,13 @@ const INIT_DATA = {
 
 export default function ExerciseForm({
   initialData = INIT_DATA,
-}: iExerciceFormProps) {
+  onSave = () => {},
+}: iExerciseFormProps) {
   const [data, setData] = useState<Partial<iExercise>>(initialData);
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
+    onSave(data);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,6 +74,7 @@ export default function ExerciseForm({
         onChange={handleChange}
         placeholder="image"
       />
+      <button type="submit">Guardar</button>
     </form>
   );
 }
