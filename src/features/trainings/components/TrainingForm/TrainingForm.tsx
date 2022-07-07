@@ -1,25 +1,24 @@
 import { SyntheticEvent, useState } from "react";
-import { iExercise } from "../../interfaces/iExercise";
-
+import { iTraining } from "../../interfaces/iTraining";
 interface iExerciseFormProps {
-  initialData?: Partial<iExercise>;
-  onSave: (exercise: Partial<iExercise>) => void;
+  initialData?: Partial<iTraining>;
+  onSave: (training: Partial<iTraining>) => void;
 }
 
-const INIT_DATA: Partial<iExercise> = {
+const INIT_DATA: Partial<iTraining> = {
   name: "",
   description: "",
-  primaryTarget: "",
-  secondaryTarget: "",
-  sources: "",
-  image: "",
+  team: "",
+  target: "",
+  equipment: "",
+  exercises: [],
 };
 
-export default function ExerciseForm({
+export default function TrainingForm({
   initialData = INIT_DATA,
   onSave = () => {},
 }: iExerciseFormProps) {
-  const [data, setData] = useState<Partial<iExercise>>(initialData);
+  const [data, setData] = useState<Partial<iTraining>>(initialData);
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
@@ -48,31 +47,24 @@ export default function ExerciseForm({
       />
       <input
         type="text"
-        name="primaryTarget"
-        value={data.primaryTarget}
+        name="team"
+        value={data.team}
         onChange={handleChange}
-        placeholder="primaryTarget"
+        placeholder="team"
       />
       <input
         type="text"
-        name="secondaryTarget"
-        value={data.secondaryTarget}
+        name="target"
+        value={data.target}
         onChange={handleChange}
-        placeholder="secondaryTarget"
+        placeholder="target"
       />
       <input
         type="text"
-        name="sources"
-        value={data.sources}
+        name="equipment"
+        value={data.equipment}
         onChange={handleChange}
-        placeholder="sources"
-      />
-      <input
-        type="text"
-        name="image"
-        value={data.image}
-        onChange={handleChange}
-        placeholder="image"
+        placeholder="equipment"
       />
       <button type="submit">Guardar</button>
     </form>

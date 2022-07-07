@@ -12,6 +12,7 @@ export default function AddExercise() {
     const newExercise = {
       ...exercise,
       id: Math.floor(Math.random() * 100000),
+      creationDate: new Date(),
     } as iExercise;
     dispatch(exercisesActionsCreators.add(newExercise));
     navigate("/");
