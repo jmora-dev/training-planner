@@ -3,7 +3,7 @@ import TrainingCard from "../TrainingCard/TrainingCard";
 
 interface iTrainingsListProps {
   trainings: Array<iTraining>;
-  onDelete: (id: number) => void;
+  onDelete: (id: string) => void;
 }
 
 export default function TrainingsList({
@@ -15,7 +15,7 @@ export default function TrainingsList({
       {trainings.map((training) => (
         <TrainingCard
           training={training}
-          onDelete={() => onDelete(training.id)}
+          onDelete={() => onDelete(training.id!)}
         />
       ))}
     </ul>

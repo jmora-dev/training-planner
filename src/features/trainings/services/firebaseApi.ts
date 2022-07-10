@@ -1,9 +1,8 @@
 import { FIREBASE_URL } from "../../../config/firebaseUrl";
-import { iExercise } from "../interfaces/iExercise";
-import { iExerciseAdding } from "../interfaces/iExerciseAdding";
+import { iTraining } from "../interfaces/iTraining";
 
-const getExercises = (): Promise<Array<iExercise>> => {
-  return fetch(FIREBASE_URL + "/exercises.json")
+const getTrainings = (): Promise<Array<iTraining>> => {
+  return fetch(FIREBASE_URL + "/trainings.json")
     .then((res) => res.json())
     .then((res) => {
       return res
@@ -12,14 +11,14 @@ const getExercises = (): Promise<Array<iExercise>> => {
     });
 };
 
-const getExerciseById = (id: string): Promise<iExercise> => {
-  return fetch(FIREBASE_URL + `/exercises/${id}.json`)
+const getTrainingById = (id: string): Promise<iTraining> => {
+  return fetch(FIREBASE_URL + `/trainings/${id}.json`)
     .then((res) => res.json())
     .then((res) => ({ ...res, id: id }));
 };
 
-const insertExercise = (data: iExerciseAdding): Promise<string> => {
-  return fetch(FIREBASE_URL + "/exercises.json", {
+const insertTraining = (data: iTraining): Promise<string> => {
+  return fetch(FIREBASE_URL + "/trainings.json", {
     method: "POST",
     headers: { "content-type": "application/json;charset=UTF-8" },
     body: JSON.stringify(data),
@@ -28,10 +27,10 @@ const insertExercise = (data: iExerciseAdding): Promise<string> => {
     .then((res) => res.name);
 };
 
-export const updateExercise = (id: string, data: Partial<iExercise>) => {
+export const updateTraining = (id: string, data: Partial<iTraining>) => {
   const update = { ...data };
   if (data.id) delete data.id;
-  return fetch(FIREBASE_URL + `/exercises/${id}.json`, {
+  return fetch(FIREBASE_URL + `/trainings/${id}.json`, {
     method: "PATCH",
     headers: { "content-type": "application/json;charset=UTF-8" },
     body: JSON.stringify(update),
@@ -43,16 +42,16 @@ export const updateExercise = (id: string, data: Partial<iExercise>) => {
     });
 };
 
-const deleteExercise = (id: string): Promise<Response> => {
-  return fetch(FIREBASE_URL + `/exercises/${id}.json`, {
+const deleteTraining = (id: string): Promise<Response> => {
+  return fetch(FIREBASE_URL + `/trainings/${id}.json`, {
     method: "DELETE",
   });
 };
 
 export const api = {
-  getExercises,
-  getExerciseById,
-  insertExercise,
-  updateExercise,
-  deleteExercise,
+  getTrainings,
+  getTrainingById,
+  insertTraining,
+  updateTraining,
+  deleteTraining,
 };

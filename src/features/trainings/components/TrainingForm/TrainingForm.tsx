@@ -1,16 +1,19 @@
 import { SyntheticEvent, useState } from "react";
 import { iTraining } from "../../interfaces/iTraining";
 interface iExerciseFormProps {
-  initialData?: Partial<iTraining>;
-  onSave: (training: Partial<iTraining>) => void;
+  initialData?: iTraining;
+  onSave: (training: iTraining) => void;
 }
 
-const INIT_DATA: Partial<iTraining> = {
+const INIT_DATA: iTraining = {
+  creationDate: "",
   name: "",
   description: "",
   team: "",
   target: "",
   equipment: "",
+  players: "",
+  observation: "",
   exercises: [],
 };
 
@@ -18,11 +21,15 @@ export default function TrainingForm({
   initialData = INIT_DATA,
   onSave = () => {},
 }: iExerciseFormProps) {
-  const [data, setData] = useState<Partial<iTraining>>(initialData);
+  const [data, setData] = useState<iTraining>(initialData);
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
-    onSave(data);
+    const updateData = { ...data };
+    if (!updateData.creationDate) {
+      updateData.creationDate = new Date().toString();
+    }
+    onSave(updateData);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
