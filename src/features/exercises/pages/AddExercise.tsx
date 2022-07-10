@@ -1,21 +1,29 @@
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import ExerciseForm from "../components/ExerciseForm/ExerciseForm";
-import { iExercise } from "../interfaces/iExercise";
+import { iExerciseAdding } from "../interfaces/iExerciseAdding";
 import { exercisesActionsCreators } from "../reducer/exercisesActionsCreators";
+import { api } from "../services/firebaseApi";
 
 export default function AddExercise() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onSave = (exercise: Partial<iExercise>) => {
+  const onSave = (exercise: iExerciseAdding) => {
     const newExercise = {
       ...exercise,
-      id: Math.floor(Math.random() * 100000),
-      creationDate: new Date(),
-    } as iExercise;
-    dispatch(exercisesActionsCreators.add(newExercise));
-    navigate("/");
+      creationDate: new Date().toString(),
+    };
+
+    api.insertExercise(newExercise).then((res) => {
+      dispatch(
+        exercisesActionsCreators.add({
+          ...newExercise,
+          id: res,
+        })
+      );
+      navigate("/");
+    });
   };
 
   return (

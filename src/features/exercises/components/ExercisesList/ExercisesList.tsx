@@ -3,7 +3,7 @@ import ExerciseCard from "../ExerciseCard/ExerciseCard";
 
 interface iExercisesListProps {
   exercises: Array<iExercise>;
-  onDelete: (id: number) => void;
+  onDelete: (id: string) => void;
 }
 
 export default function ExercisesList({
@@ -14,6 +14,7 @@ export default function ExercisesList({
     <ul>
       {exercises.map((exercise) => (
         <ExerciseCard
+          key={exercise.id}
           exercise={exercise}
           onDelete={() => onDelete(exercise.id)}
         />

@@ -6,5 +6,5 @@ export const exercisesActionsCreators = {
   load: createAction<Array<iExercise>>(ACTION_TYPES.LOAD),
   add: createAction<iExercise>(ACTION_TYPES.ADD),
   update: createAction<iExercise>(ACTION_TYPES.UPDATE),
-  delete: createAction<number>(ACTION_TYPES.DELETE),
+  delete: createAction<string>(ACTION_TYPES.DELETE),
 };

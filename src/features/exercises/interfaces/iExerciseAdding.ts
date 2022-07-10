@@ -1,6 +1,5 @@
-export interface iExercise {
-  id: string;
-  creationDate: string;
+export interface iExerciseAdding {
+  creationDate?: string;
   name: string;
   description: string;
   primaryTarget: string;
