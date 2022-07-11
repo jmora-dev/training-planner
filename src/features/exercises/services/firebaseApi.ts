@@ -1,9 +1,8 @@
-import { FIREBASE_URL } from "../../../config/firebaseUrl";
 import { iExercise } from "../interfaces/iExercise";
 import { iExerciseAdding } from "../interfaces/iExerciseAdding";
 
 const getExercises = (): Promise<Array<iExercise>> => {
-  return fetch(FIREBASE_URL + "/exercises.json")
+  return fetch(process.env.REACT_APP_API_URL + "/exercises.json")
     .then((res) => res.json())
     .then((res) => {
       return res
@@ -13,13 +12,13 @@ const getExercises = (): Promise<Array<iExercise>> => {
 };
 
 const getExerciseById = (id: string): Promise<iExercise> => {
-  return fetch(FIREBASE_URL + `/exercises/${id}.json`)
+  return fetch(process.env.REACT_APP_API_URL + `/exercises/${id}.json`)
     .then((res) => res.json())
     .then((res) => ({ ...res, id: id }));
 };
 
 const insertExercise = (data: iExerciseAdding): Promise<string> => {
-  return fetch(FIREBASE_URL + "/exercises.json", {
+  return fetch(process.env.REACT_APP_API_URL + "/exercises.json", {
     method: "POST",
     headers: { "content-type": "application/json;charset=UTF-8" },
     body: JSON.stringify(data),
@@ -31,7 +30,7 @@ const insertExercise = (data: iExerciseAdding): Promise<string> => {
 export const updateExercise = (id: string, data: Partial<iExercise>) => {
   const update = { ...data };
   if (data.id) delete data.id;
-  return fetch(FIREBASE_URL + `/exercises/${id}.json`, {
+  return fetch(process.env.REACT_APP_API_URL + `/exercises/${id}.json`, {
     method: "PATCH",
     headers: { "content-type": "application/json;charset=UTF-8" },
     body: JSON.stringify(update),
@@ -44,7 +43,7 @@ export const updateExercise = (id: string, data: Partial<iExercise>) => {
 };
 
 const deleteExercise = (id: string): Promise<Response> => {
-  return fetch(FIREBASE_URL + `/exercises/${id}.json`, {
+  return fetch(process.env.REACT_APP_API_URL + `/exercises/${id}.json`, {
     method: "DELETE",
   });
 };
