@@ -1,12 +1,12 @@
 import { SyntheticEvent, useState } from "react";
-import { iExercise } from "../../interfaces/iExercise";
+import { iExerciseAdding } from "../../interfaces/iExerciseAdding";
 
 interface iExerciseFormProps {
-  initialData?: Partial<iExercise>;
-  onSave: (exercise: Partial<iExercise>) => void;
+  initialData?: iExerciseAdding;
+  onSave: (exercise: iExerciseAdding) => void;
 }
 
-const INIT_DATA: Partial<iExercise> = {
+const INIT_DATA: iExerciseAdding = {
   name: "",
   description: "",
   primaryTarget: "",
@@ -19,7 +19,7 @@ export default function ExerciseForm({
   initialData = INIT_DATA,
   onSave = () => {},
 }: iExerciseFormProps) {
-  const [data, setData] = useState<Partial<iExercise>>(initialData);
+  const [data, setData] = useState<iExerciseAdding>(initialData);
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();

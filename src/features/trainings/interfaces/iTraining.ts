@@ -1,8 +1,6 @@
-import { iExercise } from "../../exercises/interfaces/iExercise";
-
 export interface iTraining {
-  id: number;
-  creationDate: Date;
+  id?: string;
+  creationDate: string;
   name: string;
   description: string;
   team: string;
@@ -10,5 +8,5 @@ export interface iTraining {
   equipment: string;
   players: string;
   observation: string;
-  exercises: Array<iExercise>;
+  exercises: Array<string>;
 }
