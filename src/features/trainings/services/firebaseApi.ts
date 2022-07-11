@@ -1,7 +1,7 @@
 import { iTraining } from "../interfaces/iTraining";
 
-const getTrainings = (): Promise<Array<iTraining>> => {
-  return fetch(process.env.REACT_APP_API_URL + "/trainings.json")
+const getTrainings = (token: string): Promise<Array<iTraining>> => {
+  return fetch(process.env.REACT_APP_API_URL + `/trainings.json?auth=${token}`)
     .then((res) => res.json())
     .then((res) => {
       return res
@@ -10,30 +10,42 @@ const getTrainings = (): Promise<Array<iTraining>> => {
     });
 };
 
-const getTrainingById = (id: string): Promise<iTraining> => {
-  return fetch(process.env.REACT_APP_API_URL + `/trainings/${id}.json`)
+const getTrainingById = (id: string, token: string): Promise<iTraining> => {
+  return fetch(
+    process.env.REACT_APP_API_URL + `/trainings/${id}.json?auth=${token}`
+  )
     .then((res) => res.json())
     .then((res) => ({ ...res, id: id }));
 };
 
-const insertTraining = (data: iTraining): Promise<string> => {
-  return fetch(process.env.REACT_APP_API_URL + "/trainings.json", {
-    method: "POST",
-    headers: { "content-type": "application/json;charset=UTF-8" },
-    body: JSON.stringify(data),
-  })
+const insertTraining = (data: iTraining, token: string): Promise<string> => {
+  return fetch(
+    process.env.REACT_APP_API_URL + `/trainings.json?auth=${token}`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json;charset=UTF-8" },
+      body: JSON.stringify(data),
+    }
+  )
     .then((res) => res.json())
     .then((res) => res.name);
 };
 
-export const updateTraining = (id: string, data: Partial<iTraining>) => {
+export const updateTraining = (
+  id: string,
+  data: Partial<iTraining>,
+  token: string
+) => {
   const update = { ...data };
   if (data.id) delete data.id;
-  return fetch(process.env.REACT_APP_API_URL + `/trainings/${id}.json`, {
-    method: "PATCH",
-    headers: { "content-type": "application/json;charset=UTF-8" },
-    body: JSON.stringify(update),
-  })
+  return fetch(
+    process.env.REACT_APP_API_URL + `/trainings/${id}.json?auth=${token}`,
+    {
+      method: "PATCH",
+      headers: { "content-type": "application/json;charset=UTF-8" },
+      body: JSON.stringify(update),
+    }
+  )
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
@@ -41,10 +53,13 @@ export const updateTraining = (id: string, data: Partial<iTraining>) => {
     });
 };
 
-const deleteTraining = (id: string): Promise<Response> => {
-  return fetch(process.env.REACT_APP_API_URL + `/trainings/${id}.json`, {
-    method: "DELETE",
-  });
+const deleteTraining = (id: string, token: string): Promise<Response> => {
+  return fetch(
+    process.env.REACT_APP_API_URL + `/trainings/${id}.json?auth=${token}`,
+    {
+      method: "DELETE",
+    }
+  );
 };
 
 export const api = {
