@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import TrainingForm from "../components/TrainingForm/TrainingForm";
+import { useApi } from "../hooks/useApi";
 import { iTraining } from "../interfaces/iTraining";
 import { trainingsActionsCreators } from "../reducer/trainingsActionsCreators";
-import { api } from "../services/firebaseApi";
 
 export default function UpdateTraining() {
+  const { getTrainingById, updateTraining } = useApi();
   const [loading, setLoading] = useState<boolean>(true);
   const [training, setTraining] = useState<iTraining | null>(null);
   const dispatch = useDispatch();
@@ -17,15 +18,14 @@ export default function UpdateTraining() {
     if (!trainingId) {
       setLoading(false);
     } else {
-      api
-        .getTrainingById(trainingId)
+      getTrainingById(trainingId)
         .then((res) => setTraining(res))
         .finally(() => setLoading(false));
     }
-  }, [trainingId]);
+  }, [trainingId, getTrainingById]);
 
   const onSave = (updateData: iTraining) => {
-    api.updateTraining(training!.id!, updateData).then((res) => {
+    updateTraining(training!.id!, updateData).then((res) => {
       dispatch(trainingsActionsCreators.update(res));
       navigate("/");
     });
