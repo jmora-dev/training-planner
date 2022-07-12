@@ -1,5 +1,5 @@
 export interface iExercise {
-  id: string;
+  id?: string;
   creationDate: string;
   name: string;
   description: string;
