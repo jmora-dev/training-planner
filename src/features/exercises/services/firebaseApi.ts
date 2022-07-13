@@ -1,5 +1,4 @@
 import { iExercise } from "../interfaces/iExercise";
-import { iExerciseAdding } from "../interfaces/iExerciseAdding";
 
 const getExercises = (token: string): Promise<Array<iExercise>> => {
   return fetch(process.env.REACT_APP_API_URL + `/exercises.json?auth=${token}`)
@@ -19,10 +18,7 @@ const getExerciseById = (id: string, token: string): Promise<iExercise> => {
     .then((res) => ({ ...res, id: id }));
 };
 
-const insertExercise = (
-  data: iExerciseAdding,
-  token: string
-): Promise<string> => {
+const insertExercise = (data: iExercise, token: string): Promise<string> => {
   return fetch(
     process.env.REACT_APP_API_URL + `/exercises.json?auth=${token}`,
     {
