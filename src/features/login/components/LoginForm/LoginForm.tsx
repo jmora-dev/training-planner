@@ -35,6 +35,7 @@ export default function LoginForm({ onSignIn }: LoginFormProps) {
         onChange={handleChange}
         placeholder="password"
       />
+      <button type="submit">Acceder</button>
     </form>
   );
 }
