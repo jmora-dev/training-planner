@@ -4,6 +4,7 @@ import AddExercise from "./features/exercises/pages/AddExercise";
 import Exercises from "./features/exercises/pages/Exercises";
 import UpdateExercise from "./features/exercises/pages/UpdateExercise";
 import Login from "./features/login/pages/Login";
+import Logout from "./features/login/pages/Logout";
 import PrivateRoute from "./features/login/router/PrivateRoute";
 import PublicRoute from "./features/login/router/PublicRoute";
 import AddTraining from "./features/trainings/pages/AddTraining";
@@ -40,6 +41,7 @@ export default function App() {
             element={<UpdateExercise />}
           />
         </Route>
+        <Route path={ROUTES.LOGOUT} element={<Logout />} />
       </Routes>
     </>
   );

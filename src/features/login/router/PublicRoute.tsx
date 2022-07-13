@@ -6,7 +6,7 @@ export default function PublicRoute() {
   const { authenticated } = useLogin();
 
   if (authenticated) {
-    return <Navigate to={ROUTES.LOGIN} />;
+    return <Navigate to={ROUTES.TRAININGS} />;
   }
 
   return (
