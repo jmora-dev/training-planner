@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { ROUTES } from "../../../config/routes";
 import TrainingForm from "../components/TrainingForm/TrainingForm";
 import { useTrainings } from "../hooks/useTrainings";
 import { iTraining } from "../interfaces/iTraining";
@@ -35,7 +36,7 @@ export default function UpdateTraining() {
     return (
       <>
         <TrainingForm initialData={training} onSave={onSave} />
-        <Link to="/">Back</Link>
+        <Link to={ROUTES.TRAININGS}>Back</Link>
       </>
     );
   }

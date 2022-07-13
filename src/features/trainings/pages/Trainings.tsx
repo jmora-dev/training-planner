@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ROUTES } from "../../../config/routes";
 import TrainingsList from "../components/TrainingsList/TrainingsList";
 import { useTrainings } from "../hooks/useTrainings";
 
@@ -12,7 +13,7 @@ export default function Trainings() {
 
   return (
     <>
-      <Link to="/exercises/add">Nuevo</Link>
+      <Link to={ROUTES.TRAININGS_ADD}>Nuevo</Link>
       <TrainingsList trainings={trainings} />
     </>
   );

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ROUTES } from "../../../../config/routes";
 import { useTrainings } from "../../hooks/useTrainings";
 import { iTraining } from "../../interfaces/iTraining";
 
@@ -11,7 +12,7 @@ export default function TrainingCard({ training }: iTrainingCardProps) {
   return (
     <div>
       <h2>{training.name}</h2>
-      <Link to={`/trainings/update/${training.id}`}>Modificar</Link>
+      <Link to={`${ROUTES.TRAININGS_UPDATE}/${training.id}`}>Modificar</Link>
       <button onClick={() => deleteTraining(training!.id!)}>Delete</button>
     </div>
   );
