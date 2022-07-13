@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { ROUTES } from "../../../config/routes";
 import ExerciseForm from "../components/ExerciseForm/ExerciseForm";
 import { useExercises } from "../hooks/useExercises";
 import { iExercise } from "../interfaces/iExercise";
@@ -23,7 +24,7 @@ export default function UpdateExercise() {
 
   const onSave = (updateData: iExercise) => {
     updateExercise(exercise!.id!, updateData).then(() => {
-      navigate("/");
+      navigate(ROUTES.EXERCISES);
     });
   };
 
@@ -38,7 +39,7 @@ export default function UpdateExercise() {
   return (
     <>
       <ExerciseForm initialData={exercise} onSave={onSave} />
-      <Link to="/">Back</Link>
+      <Link to={ROUTES.EXERCISES}>Back</Link>
     </>
   );
 }

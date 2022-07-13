@@ -35,9 +35,9 @@ export default function App() {
             path={ROUTES.EXERCISE_DETAIL + "/:exerciseId"}
             element={<ExerciseDetail />}
           /> */}
-          <Route path={ROUTES.EXERCISE_ADD} element={<AddExercise />} />
+          <Route path={ROUTES.EXERCISES_ADD} element={<AddExercise />} />
           <Route
-            path={ROUTES.EXERCISE_UPDATE + "/:exerciseId"}
+            path={ROUTES.EXERCISES_UPDATE + "/:exerciseId"}
             element={<UpdateExercise />}
           />
         </Route>
