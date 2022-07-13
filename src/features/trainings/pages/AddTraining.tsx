@@ -1,29 +1,23 @@
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../config/routes";
 import TrainingForm from "../components/TrainingForm/TrainingForm";
+import { useTrainings } from "../hooks/useTrainings";
 import { iTraining } from "../interfaces/iTraining";
-import { trainingsActionsCreators } from "../reducer/trainingsActionsCreators";
-import { api } from "../services/firebaseApi";
 
 export default function AddTraining() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { insertTraining } = useTrainings();
 
   const onSave = (training: iTraining) => {
-    api.insertTraining(training).then((res) => {
-      dispatch(
-        trainingsActionsCreators.add({
-          ...training,
-          id: res,
-        })
-      );
-      navigate("/");
+    insertTraining(training).then(() => {
+      navigate(ROUTES.TRAININGS);
     });
   };
+
   return (
     <>
       <TrainingForm onSave={onSave} />
-      <Link to="/">Back</Link>
+      <Link to={ROUTES.TRAININGS}>Back</Link>
     </>
   );
 }

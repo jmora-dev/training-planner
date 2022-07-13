@@ -1,35 +1,23 @@
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../config/routes";
 import ExerciseForm from "../components/ExerciseForm/ExerciseForm";
-import { iExerciseAdding } from "../interfaces/iExerciseAdding";
-import { exercisesActionsCreators } from "../reducer/exercisesActionsCreators";
-import { api } from "../services/firebaseApi";
+import { useExercises } from "../hooks/useExercises";
+import { iExercise } from "../interfaces/iExercise";
 
 export default function AddExercise() {
-  const dispatch = useDispatch();
+  const { insertExercise } = useExercises();
   const navigate = useNavigate();
 
-  const onSave = (exercise: iExerciseAdding) => {
-    const newExercise = {
-      ...exercise,
-      creationDate: new Date().toString(),
-    };
-
-    api.insertExercise(newExercise).then((res) => {
-      dispatch(
-        exercisesActionsCreators.add({
-          ...newExercise,
-          id: res,
-        })
-      );
-      navigate("/");
+  const onSave = (exercise: iExercise) => {
+    insertExercise(exercise).then(() => {
+      navigate(ROUTES.EXERCISES);
     });
   };
 
   return (
     <>
       <ExerciseForm onSave={onSave} />
-      <Link to="/">Back</Link>
+      <Link to={ROUTES.EXERCISES}>Back</Link>
     </>
   );
 }

@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { ROUTES } from "../../../config/routes";
 import ExerciseForm from "../components/ExerciseForm/ExerciseForm";
+import { useExercises } from "../hooks/useExercises";
 import { iExercise } from "../interfaces/iExercise";
-import { iExerciseAdding } from "../interfaces/iExerciseAdding";
-import { exercisesActionsCreators } from "../reducer/exercisesActionsCreators";
-import { api } from "../services/firebaseApi";
 
 export default function UpdateExercise() {
+  const { getExerciseById, updateExercise } = useExercises();
   const [loading, setLoading] = useState<boolean>(true);
   const [exercise, setExercise] = useState<iExercise | null>(null);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { exerciseId } = useParams();
 
@@ -18,17 +16,15 @@ export default function UpdateExercise() {
     if (!exerciseId) {
       setLoading(false);
     } else {
-      api
-        .getExerciseById(exerciseId)
+      getExerciseById(exerciseId)
         .then((res) => setExercise(res))
         .finally(() => setLoading(false));
     }
-  }, [exerciseId]);
+  }, [exerciseId, getExerciseById]);
 
-  const onSave = (updateData: iExerciseAdding) => {
-    api.updateExercise(exercise!.id, updateData).then((res) => {
-      dispatch(exercisesActionsCreators.update(res));
-      navigate("/");
+  const onSave = (updateData: iExercise) => {
+    updateExercise(exercise!.id!, updateData).then(() => {
+      navigate(ROUTES.EXERCISES);
     });
   };
 
@@ -43,7 +39,7 @@ export default function UpdateExercise() {
   return (
     <>
       <ExerciseForm initialData={exercise} onSave={onSave} />
-      <Link to="/">Back</Link>
+      <Link to={ROUTES.EXERCISES}>Back</Link>
     </>
   );
 }

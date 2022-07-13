@@ -1,8 +1,7 @@
 import { iExercise } from "../interfaces/iExercise";
-import { iExerciseAdding } from "../interfaces/iExerciseAdding";
 
-const getExercises = (): Promise<Array<iExercise>> => {
-  return fetch(process.env.REACT_APP_API_URL + "/exercises.json")
+const getExercises = (token: string): Promise<Array<iExercise>> => {
+  return fetch(process.env.REACT_APP_API_URL + `/exercises.json?auth=${token}`)
     .then((res) => res.json())
     .then((res) => {
       return res
@@ -11,30 +10,42 @@ const getExercises = (): Promise<Array<iExercise>> => {
     });
 };
 
-const getExerciseById = (id: string): Promise<iExercise> => {
-  return fetch(process.env.REACT_APP_API_URL + `/exercises/${id}.json`)
+const getExerciseById = (id: string, token: string): Promise<iExercise> => {
+  return fetch(
+    process.env.REACT_APP_API_URL + `/exercises/${id}.json?auth=${token}`
+  )
     .then((res) => res.json())
     .then((res) => ({ ...res, id: id }));
 };
 
-const insertExercise = (data: iExerciseAdding): Promise<string> => {
-  return fetch(process.env.REACT_APP_API_URL + "/exercises.json", {
-    method: "POST",
-    headers: { "content-type": "application/json;charset=UTF-8" },
-    body: JSON.stringify(data),
-  })
+const insertExercise = (data: iExercise, token: string): Promise<string> => {
+  return fetch(
+    process.env.REACT_APP_API_URL + `/exercises.json?auth=${token}`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json;charset=UTF-8" },
+      body: JSON.stringify(data),
+    }
+  )
     .then((res) => res.json())
     .then((res) => res.name);
 };
 
-export const updateExercise = (id: string, data: Partial<iExercise>) => {
+export const updateExercise = (
+  id: string,
+  data: Partial<iExercise>,
+  token: string
+) => {
   const update = { ...data };
   if (data.id) delete data.id;
-  return fetch(process.env.REACT_APP_API_URL + `/exercises/${id}.json`, {
-    method: "PATCH",
-    headers: { "content-type": "application/json;charset=UTF-8" },
-    body: JSON.stringify(update),
-  })
+  return fetch(
+    process.env.REACT_APP_API_URL + `/exercises/${id}.json?auth=${token}`,
+    {
+      method: "PATCH",
+      headers: { "content-type": "application/json;charset=UTF-8" },
+      body: JSON.stringify(update),
+    }
+  )
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
@@ -42,10 +53,13 @@ export const updateExercise = (id: string, data: Partial<iExercise>) => {
     });
 };
 
-const deleteExercise = (id: string): Promise<Response> => {
-  return fetch(process.env.REACT_APP_API_URL + `/exercises/${id}.json`, {
-    method: "DELETE",
-  });
+const deleteExercise = (id: string, token: string): Promise<Response> => {
+  return fetch(
+    process.env.REACT_APP_API_URL + `/exercises/${id}.json?auth=${token}`,
+    {
+      method: "DELETE",
+    }
+  );
 };
 
 export const api = {
