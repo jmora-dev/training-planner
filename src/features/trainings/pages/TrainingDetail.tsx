@@ -21,7 +21,9 @@ export default function TrainingDetail() {
   }, [trainingId, getTrainingById]);
 
   if (loading) {
+    return null;
   } else if (!training) {
+    return null;
   } else {
     return (
       <div>

@@ -28,7 +28,9 @@ export default function UpdateTraining() {
   };
 
   if (loading) {
+    return null;
   } else if (!training) {
+    return null;
   } else {
     return (
       <>
