@@ -1,17 +1,19 @@
 // import { useNavigate } from "react-router-dom";
+import LoginForm from "../components/LoginForm/LoginForm";
 import { useLogin } from "../hooks/useLogin";
+import { iLoginRequest } from "../interfaces/iLoginRequest";
 
 export default function Login() {
   const { signIn } = useLogin();
   // const navigate = useNavigate();
 
-  const onSignIn = () => {
-    signIn("dam2mora@gmail.com", "123456");
+  const onSignIn = (data: iLoginRequest) => {
+    signIn(data.email, data.password);
   };
 
   return (
     <>
-      <button onClick={onSignIn}>signIn</button>
+      <LoginForm onSignIn={onSignIn} />
     </>
   );
 }
