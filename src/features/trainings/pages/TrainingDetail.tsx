@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TrainingInfo from "../components/TrainingInfo/TrainingInfo";
-import { useApi } from "../hooks/useApi";
+import { useTrainings } from "../hooks/useTrainings";
 import { iTraining } from "../interfaces/iTraining";
 
 export default function TrainingDetail() {
   const { trainingId } = useParams();
-  const { getTrainingById } = useApi();
+  const { getTrainingById } = useTrainings();
   const [loading, setLoading] = useState<boolean>(true);
   const [training, setTraining] = useState<iTraining | null>(null);
 

@@ -30,8 +30,8 @@ export function useExercises() {
     });
   };
 
-  const updateExercise = (id: string, updateData: iExercise) => {
-    return api.updateExercise(id, updateData, token).then((res) => {
+  const updateExercise = (id: string, data: iExercise) => {
+    return api.updateExercise(id, data, token).then((res) => {
       dispatch(exercisesActionsCreators.update(res));
     });
   };

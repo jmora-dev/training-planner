@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import TrainingForm from "../components/TrainingForm/TrainingForm";
-import { useApi } from "../hooks/useApi";
+import { useTrainings } from "../hooks/useTrainings";
 import { iTraining } from "../interfaces/iTraining";
-import { trainingsActionsCreators } from "../reducer/trainingsActionsCreators";
 
 export default function UpdateTraining() {
-  const { getTrainingById, updateTraining } = useApi();
+  const { getTrainingById, updateTraining } = useTrainings();
   const [loading, setLoading] = useState<boolean>(true);
   const [training, setTraining] = useState<iTraining | null>(null);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { trainingId } = useParams();
 
@@ -25,8 +22,7 @@ export default function UpdateTraining() {
   }, [trainingId, getTrainingById]);
 
   const onSave = (updateData: iTraining) => {
-    updateTraining(training!.id!, updateData).then((res) => {
-      dispatch(trainingsActionsCreators.update(res));
+    updateTraining(training!.id!, updateData).then(() => {
       navigate("/");
     });
   };
