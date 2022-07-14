@@ -27,7 +27,7 @@ export default function TrainingForm({
     event.preventDefault();
     const updateData = { ...data };
     if (!updateData.creationDate) {
-      updateData.creationDate = new Date().toString();
+      updateData.creationDate = new Date().toJSON();
     }
     onSave(updateData);
   };
