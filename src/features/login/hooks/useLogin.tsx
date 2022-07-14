@@ -14,7 +14,7 @@ export function useLogin() {
   };
 
   const signOut = () => {
-    dispatch(loginActionsCreators.logout);
+    dispatch(loginActionsCreators.logout());
   };
 
   return { authenticated, signIn, signOut };
