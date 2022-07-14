@@ -40,8 +40,8 @@ export default function App() {
             path={ROUTES.EXERCISES_UPDATE + "/:exerciseId"}
             element={<UpdateExercise />}
           />
+          <Route path={ROUTES.LOGOUT} element={<Logout />} />
         </Route>
-        <Route path={ROUTES.LOGOUT} element={<Logout />} />
       </Routes>
     </>
   );
