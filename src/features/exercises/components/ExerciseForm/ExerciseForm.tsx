@@ -37,47 +37,47 @@ export default function ExerciseForm({
 
   return (
     <form onSubmit={handleSubmit}>
+      <label htmlFor="name">Ejercicio:</label>
       <input
         type="text"
         name="name"
         value={data.name}
         onChange={handleChange}
-        placeholder="name"
       />
+      <label htmlFor="description">Descripción:</label>
       <input
         type="text"
         name="description"
         value={data.description}
         onChange={handleChange}
-        placeholder="description"
       />
+      <label htmlFor="primaryTarget">Objetivo:</label>
       <input
         type="text"
         name="primaryTarget"
         value={data.primaryTarget}
         onChange={handleChange}
-        placeholder="primaryTarget"
       />
+      <label htmlFor="secondaryTarget">Objetivo secundario:</label>
       <input
         type="text"
         name="secondaryTarget"
         value={data.secondaryTarget}
         onChange={handleChange}
-        placeholder="secondaryTarget"
       />
+      <label htmlFor="sources">Fuentes:</label>
       <input
         type="text"
         name="sources"
         value={data.sources}
         onChange={handleChange}
-        placeholder="sources"
       />
+      <label htmlFor="image">Imagen URL:</label>
       <input
         type="text"
         name="image"
         value={data.image}
         onChange={handleChange}
-        placeholder="image"
       />
       <button type="submit">Guardar</button>
     </form>
