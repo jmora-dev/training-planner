@@ -13,6 +13,7 @@ export default function Trainings() {
 
   return (
     <>
+      <h2>Entrenamientos</h2>
       <Link to={ROUTES.TRAININGS_ADD}>Nuevo</Link>
       <TrainingsList trainings={trainings} />
     </>
