@@ -9,7 +9,9 @@ export default function ExercisesList({ exercises }: iExercisesListProps) {
   return (
     <ul>
       {exercises.map((exercise) => (
-        <ExerciseCard key={exercise.id} exercise={exercise} />
+        <li key={exercise.id}>
+          <ExerciseCard exercise={exercise} />
+        </li>
       ))}
     </ul>
   );
