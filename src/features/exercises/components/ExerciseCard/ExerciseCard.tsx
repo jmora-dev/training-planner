@@ -1,19 +1,59 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../../config/routes";
-import { useExercises } from "../../hooks/useExercises";
 import { iExercise } from "../../interfaces/iExercise";
 
 interface iExerciseCardProps {
   exercise: iExercise;
+  isSelectable?: boolean;
+  isSelected?: boolean;
+  onSelect?: (id: string) => void;
+  isEditable?: boolean;
 }
 
-export default function ExerciseCard({ exercise }: iExerciseCardProps) {
-  const { deleteExercise } = useExercises();
+export default function ExerciseCard({
+  exercise,
+  isSelectable = false,
+  isSelected = false,
+  onSelect = () => {},
+  isEditable = false,
+}: iExerciseCardProps) {
+  const onClickCard = () => {
+    if (isSelectable) {
+      onSelect(exercise!.id!);
+    }
+  };
+
+  const cardExtraClasses = () => {
+    if (isSelectable && isSelected) {
+      return " is-selected";
+    }
+  };
+
   return (
-    <div>
-      <h2>{exercise.name}</h2>
-      <Link to={`${ROUTES.EXERCISES_UPDATE}/${exercise.id}`}>Modificar</Link>
-      <button onClick={() => deleteExercise(exercise.id!)}>Delete</button>
-    </div>
+    <article
+      onClick={() => onClickCard()}
+      className={"exercise-card" + cardExtraClasses()}
+    >
+      {isSelectable && isSelected && (
+        <div
+          className="exercise-card__selected-container"
+          aria-label="exercise selected"
+        >
+          <i className="fa-solid fa-circle-check"></i>
+        </div>
+      )}
+      <div>
+        <img src={exercise.image} alt={"Exercise plan"} />
+      </div>
+      <div>
+        <h4>{exercise.name}</h4>
+        <p>{exercise.description}</p>
+      </div>
+      {isEditable && (
+        <div>
+          <Link to={`${ROUTES.EXERCISES_DETAIL}/${exercise!.id!}`}>Ver</Link>
+        </div>
+      )}
+    </article>
   );
 }
