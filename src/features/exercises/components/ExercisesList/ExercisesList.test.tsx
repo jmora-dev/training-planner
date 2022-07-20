@@ -1,4 +1,5 @@
 import { screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import { renderWithProviders } from "../../../../redux/renderWithProviders";
 import { iExercise } from "../../interfaces/iExercise";
 import ExercisesList from "./ExercisesList";
@@ -28,7 +29,11 @@ describe("Given ExercisesList component", () => {
           sources: "Enlaces fuentes",
         },
       ];
-      renderWithProviders(<ExercisesList exercises={exercises} />);
+      renderWithProviders(
+        <MemoryRouter>
+          <ExercisesList exercises={exercises} />
+        </MemoryRouter>
+      );
 
       expect(screen.getAllByRole("article").length).toBe(2);
       screen.getByText(/Ejercicio 1/i);

@@ -10,7 +10,7 @@ export default function ExercisesList({ exercises }: iExercisesListProps) {
     <ul>
       {exercises.map((exercise) => (
         <li key={exercise.id}>
-          <ExerciseCard exercise={exercise} />
+          <ExerciseCard exercise={exercise} isEditable={true} />
         </li>
       ))}
     </ul>

@@ -51,6 +51,11 @@ export default function ExerciseCard({
       </div>
       {isEditable && (
         <div>
+          <Link to={`${ROUTES.EXERCISES_UPDATE}/${exercise!.id!}`}>Editar</Link>
+        </div>
+      )}
+      {false && (
+        <div>
           <Link to={`${ROUTES.EXERCISES_DETAIL}/${exercise!.id!}`}>Ver</Link>
         </div>
       )}
