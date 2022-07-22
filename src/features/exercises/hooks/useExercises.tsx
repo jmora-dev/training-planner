@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { iExercise } from "../interfaces/iExercise";
 import { exercisesActionsCreators } from "../reducer/exercisesActionsCreators";
-import { api } from "../services/firebaseApi";
+import { api } from "../services/exercisesFirebaseApi";
 
 export function useExercises() {
   const { token } = useSelector((state: RootState) => state.login);

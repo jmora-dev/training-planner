@@ -13,6 +13,7 @@ export default function Exercises() {
 
   return (
     <>
+      <h2>Ejercicios</h2>
       <Link to={ROUTES.EXERCISES_ADD}>Nuevo</Link>
       <ExercisesList exercises={exercises} />
     </>
