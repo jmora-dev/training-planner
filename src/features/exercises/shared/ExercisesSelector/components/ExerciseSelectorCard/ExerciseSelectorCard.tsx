@@ -22,7 +22,7 @@ export default function ExerciseSelectorCard({
     >
       {isSelected && (
         <div className="exercise-selector__select-container">
-          <i className="fa-solid fa-circle-check"></i>
+          <i className="fa-solid fa-circle-check" aria-label="selected"></i>
         </div>
       )}
       <Card>

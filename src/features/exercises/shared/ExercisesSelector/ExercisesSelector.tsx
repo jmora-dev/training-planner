@@ -15,7 +15,6 @@ export default function ExercisesSelector({
   const { exercises, reloadAllExercises } = useExercises();
 
   useEffect(() => {
-    console.log("llamada");
     reloadAllExercises();
   }, [reloadAllExercises]);
 
