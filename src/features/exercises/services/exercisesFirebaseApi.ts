@@ -35,7 +35,7 @@ export const updateExercise = (
   id: string,
   data: Partial<iExercise>,
   token: string
-) => {
+): Promise<iExercise> => {
   const update = { ...data };
   if (data.id) delete data.id;
   return fetch(
@@ -45,12 +45,7 @@ export const updateExercise = (
       headers: { "content-type": "application/json;charset=UTF-8" },
       body: JSON.stringify(update),
     }
-  )
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res);
-      return res;
-    });
+  ).then((res) => res.json());
 };
 
 const deleteExercise = (id: string, token: string): Promise<Response> => {

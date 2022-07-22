@@ -1,12 +1,12 @@
 import { MemoryRouter } from "react-router-dom";
 import { useExercises } from "./useExercises";
-import { api } from "../services/firebaseApi";
+import { api } from "../services/exercisesFirebaseApi";
 import { renderWithProviders } from "../../../redux/renderWithProviders";
 import { fireEvent, screen, waitFor } from "@testing-library/react";
 import { useState } from "react";
 import { iExercise } from "../interfaces/iExercise";
 
-jest.mock("../services/firebaseApi");
+jest.mock("../services/exercisesFirebaseApi");
 
 const exercisesForReloadAll = [
   {
