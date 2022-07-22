@@ -9,7 +9,6 @@ const login = (email: string, password: string): Promise<string> => {
   )
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
       return res.idToken as string;
     });
 };
