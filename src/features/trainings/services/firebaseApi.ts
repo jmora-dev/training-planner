@@ -45,12 +45,7 @@ export const updateTraining = (
       headers: { "content-type": "application/json;charset=UTF-8" },
       body: JSON.stringify(update),
     }
-  )
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res);
-      return res;
-    });
+  ).then((res) => res.json());
 };
 
 const deleteTraining = (id: string, token: string): Promise<Response> => {

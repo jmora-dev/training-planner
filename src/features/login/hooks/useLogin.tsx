@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { loginActionsCreators } from "../reducer/loginActionsCreators";
@@ -7,15 +8,21 @@ export function useLogin() {
   const { authenticated } = useSelector((state: RootState) => state.login);
   const dispatch = useDispatch();
 
-  const signIn = (user: string, password: string) => {
-    api.login(user, password).then((res) => {
-      dispatch(loginActionsCreators.login(res));
-    });
-  };
+  const signIn = useCallback(
+    (user: string, password: string) => {
+      api.login(user, password).then((res) => {
+        dispatch(loginActionsCreators.login(res));
+      });
+    },
+    [dispatch]
+  );
 
-  const signOut = () => {
+  const signOut = useCallback(() => {
     dispatch(loginActionsCreators.logout());
-  };
+  }, [dispatch]);
 
-  return { authenticated, signIn, signOut };
+  return useMemo(
+    () => ({ authenticated, signIn, signOut }),
+    [authenticated, signIn, signOut]
+  );
 }

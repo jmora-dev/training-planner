@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { iExercise } from "../interfaces/iExercise";
@@ -9,47 +10,69 @@ export function useExercises() {
   const exercises = useSelector((state: RootState) => state.exercises);
   const dispatch = useDispatch();
 
-  const reloadAllExercises = () => {
+  const reloadAllExercises = useCallback(() => {
     return api
       .getExercises(token)
       .then((res) => dispatch(exercisesActionsCreators.load(res)));
-  };
+  }, [token, dispatch]);
 
-  const getExerciseById = (id: string) => {
-    return api.getExerciseById(id, token);
-  };
+  const getExerciseById = useCallback(
+    (id: string) => {
+      return api.getExerciseById(id, token);
+    },
+    [token]
+  );
 
-  const insertExercise = (data: iExercise) => {
-    return api.insertExercise(data, token).then((res) => {
-      dispatch(
-        exercisesActionsCreators.add({
-          ...data,
-          id: res,
-        })
-      );
-    });
-  };
+  const insertExercise = useCallback(
+    (data: iExercise) => {
+      return api.insertExercise(data, token).then((res) => {
+        dispatch(
+          exercisesActionsCreators.add({
+            ...data,
+            id: res,
+          })
+        );
+      });
+    },
+    [token, dispatch]
+  );
 
-  const updateExercise = (id: string, data: iExercise) => {
-    return api.updateExercise(id, data, token).then((res) => {
-      dispatch(exercisesActionsCreators.update(res));
-    });
-  };
+  const updateExercise = useCallback(
+    (id: string, data: iExercise) => {
+      return api.updateExercise(id, data, token).then((res) => {
+        dispatch(exercisesActionsCreators.update(res));
+      });
+    },
+    [token, dispatch]
+  );
 
-  const deleteExercise = (id: string) => {
-    return api.deleteExercise(id, token).then((res) => {
-      if (res.ok) {
-        dispatch(exercisesActionsCreators.delete(id));
-      }
-    });
-  };
+  const deleteExercise = useCallback(
+    (id: string) => {
+      return api.deleteExercise(id, token).then((res) => {
+        if (res.ok) {
+          dispatch(exercisesActionsCreators.delete(id));
+        }
+      });
+    },
+    [token, dispatch]
+  );
 
-  return {
-    exercises: exercises.data,
-    reloadAllExercises,
-    getExerciseById,
-    insertExercise,
-    updateExercise,
-    deleteExercise,
-  };
+  return useMemo(
+    () => ({
+      exercises: exercises.data,
+      reloadAllExercises,
+      getExerciseById,
+      insertExercise,
+      updateExercise,
+      deleteExercise,
+    }),
+    [
+      exercises,
+      reloadAllExercises,
+      getExerciseById,
+      insertExercise,
+      updateExercise,
+      deleteExercise,
+    ]
+  );
 }
