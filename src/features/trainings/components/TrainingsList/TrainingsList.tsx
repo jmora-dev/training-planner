@@ -9,7 +9,9 @@ export default function TrainingsList({ trainings }: iTrainingsListProps) {
   return (
     <ul>
       {trainings.map((training) => (
-        <TrainingCard training={training} />
+        <li key={training.id}>
+          <TrainingCard training={training} />
+        </li>
       ))}
     </ul>
   );

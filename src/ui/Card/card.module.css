@@ -1,0 +1,24 @@
+.card {
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 0.3em;
+  border: 1px solid rgba(144, 202, 249, 0.46);
+}
+
+.card__image {
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  aspect-ratio: 10/5;
+  object-fit: cover;
+}
+
+.card__content {
+  padding: 1em;
+}
+
+.card__title {
+  margin-bottom: 1em;
+}
