@@ -1,0 +1,49 @@
+import { useEffect, useState } from "react";
+import { useExercises } from "../../hooks/useExercises";
+import ExerciseSelectorCard from "./components/ExerciseSelectorCard/ExerciseSelectorCard";
+import "./exercisesSelector.css";
+
+interface iExercisesSelectorProps {
+  idsExercisesSelected: Array<string>;
+}
+
+export default function ExercisesSelector({
+  idsExercisesSelected,
+}: iExercisesSelectorProps) {
+  const [exercisesSelected, setExercisesSelected] =
+    useState(idsExercisesSelected);
+  const { exercises, reloadAllExercises } = useExercises();
+
+  useEffect(() => {
+    console.log("llamada");
+    reloadAllExercises();
+  }, [reloadAllExercises]);
+
+  const onClickExercise = (exerciseId: string) => {
+    if (checkExerciseIsSelected(exerciseId)) {
+      setExercisesSelected(exercisesSelected.filter((id) => id !== exerciseId));
+    } else {
+      setExercisesSelected([...exercisesSelected, exerciseId]);
+    }
+  };
+
+  const checkExerciseIsSelected = (exerciseId: string): boolean => {
+    return Boolean(exercisesSelected.find((id) => id === exerciseId));
+  };
+
+  return (
+    <div>
+      <ul className="exercise-selector-list">
+        {exercises.map((exercise) => (
+          <li key={exercise.id!} className="exercise-selector-list__item">
+            <ExerciseSelectorCard
+              exercise={exercise}
+              isSelected={checkExerciseIsSelected(exercise.id!)}
+              selectExercise={onClickExercise}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
