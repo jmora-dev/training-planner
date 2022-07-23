@@ -1,12 +1,12 @@
 import LoginForm from "../../components/LoginForm/LoginForm";
 import { useLogin } from "../../hooks/useLogin";
-import { iLoginRequest } from "../../interfaces/iLoginRequest";
+import { LoginRequest } from "../../interfaces/LoginRequest";
 import "./login.css";
 
 export default function Login() {
   const { signIn } = useLogin();
 
-  const onSignIn = (data: iLoginRequest) => {
+  const onSignIn = (data: LoginRequest) => {
     signIn(data.email, data.password);
   };
 

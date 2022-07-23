@@ -6,14 +6,14 @@ import {
   BUTTON_TYPE,
 } from "../../../../ui/Button/Button";
 import { INPUT_TYPE } from "../../../../ui/Input/Input";
-import { iLoginRequest } from "../../interfaces/iLoginRequest";
+import { LoginRequest } from "../../interfaces/LoginRequest";
 import "./loginForm.css";
 
 interface LoginFormProps {
-  onSignIn: (data: iLoginRequest) => void;
+  onSignIn: (data: LoginRequest) => void;
 }
 
-const INIT_DATA: iLoginRequest = { email: "", password: "" };
+const INIT_DATA: LoginRequest = { email: "", password: "" };
 
 export default function LoginForm({ onSignIn }: LoginFormProps) {
   const [data, setData] = useState(INIT_DATA);
