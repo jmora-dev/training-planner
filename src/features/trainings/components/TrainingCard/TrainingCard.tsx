@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../../config/routes";
 import { useTrainings } from "../../hooks/useTrainings";
-import { ITraining } from "../../interfaces/ITraining";
+import { Training } from "../../interfaces/Training";
 
 interface TrainingCardProps {
-  training: ITraining;
+  training: Training;
 }
 
 export default function TrainingCard({ training }: TrainingCardProps) {

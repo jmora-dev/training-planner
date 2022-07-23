@@ -1,11 +1,14 @@
 import { SyntheticEvent, useState } from "react";
-import { ITraining } from "../../interfaces/ITraining";
+import { Button, Input, Label } from "../../../../ui";
+import { BUTTON_TYPE } from "../../../../ui/Button/Button";
+import { INPUT_TYPE } from "../../../../ui/Input/Input";
+import { Training } from "../../interfaces/Training";
 interface ExerciseFormProps {
-  initialData?: ITraining;
-  onSave: (training: ITraining) => void;
+  initialData?: Training;
+  onSave: (training: Training) => void;
 }
 
-const INIT_DATA: ITraining = {
+const INIT_DATA: Training = {
   creationDate: "",
   name: "",
   description: "",
@@ -21,7 +24,7 @@ export default function TrainingForm({
   initialData = INIT_DATA,
   onSave,
 }: ExerciseFormProps) {
-  const [data, setData] = useState<ITraining>(initialData);
+  const [data, setData] = useState<Training>(initialData);
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
@@ -38,42 +41,52 @@ export default function TrainingForm({
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        value={data.name}
-        onChange={handleChange}
-        placeholder="name"
-      />
-      <input
-        type="text"
-        name="description"
-        value={data.description}
-        onChange={handleChange}
-        placeholder="description"
-      />
-      <input
-        type="text"
-        name="team"
-        value={data.team}
-        onChange={handleChange}
-        placeholder="team"
-      />
-      <input
-        type="text"
-        name="target"
-        value={data.target}
-        onChange={handleChange}
-        placeholder="target"
-      />
-      <input
-        type="text"
-        name="equipment"
-        value={data.equipment}
-        onChange={handleChange}
-        placeholder="equipment"
-      />
-      <button type="submit">Guardar</button>
+      <div>
+        <Label htmlFor="name">Nombre:</Label>
+        <Input
+          inputType={INPUT_TYPE.TEXT}
+          name="name"
+          value={data.name}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <Label htmlFor="name">Descripción:</Label>
+        <Input
+          inputType={INPUT_TYPE.TEXT}
+          name="description"
+          value={data.description}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <Label htmlFor="name">Equipo:</Label>
+        <Input
+          inputType={INPUT_TYPE.TEXT}
+          name="team"
+          value={data.team}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <Label htmlFor="name">Objetivo:</Label>
+        <Input
+          inputType={INPUT_TYPE.TEXT}
+          name="target"
+          value={data.target}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <Label htmlFor="name">Equipamiento:</Label>
+        <Input
+          inputType={INPUT_TYPE.TEXT}
+          name="equipment"
+          value={data.equipment}
+          onChange={handleChange}
+        />
+      </div>
+      <Button type={BUTTON_TYPE.SUBMIT}>Guardar</Button>
     </form>
   );
 }
