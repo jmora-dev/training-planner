@@ -1,11 +1,11 @@
-import { iExercise } from "../../interfaces/iExercise";
+import { IExercise } from "../../interfaces/IExercise";
 import { renderWithProviders } from "../../../../redux/renderWithProviders";
 import ExerciseCard from "./ExerciseCard";
 import { MemoryRouter } from "react-router-dom";
 import { screen } from "@testing-library/react";
 
 describe("Given ExerciseCard component", () => {
-  let exercise: iExercise;
+  let exercise: IExercise;
   beforeEach(() => {
     exercise = {
       id: "1",

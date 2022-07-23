@@ -20,7 +20,7 @@ export enum BUTTON_SIZE {
   SMALL = "small",
 }
 
-interface iButtonProps {
+interface ButtonProps {
   type?: BUTTON_TYPE;
   style?: BUTTON_STYLE;
   size?: BUTTON_SIZE;
@@ -36,7 +36,7 @@ export default function Button({
   to = "",
   onClick,
   children,
-}: iButtonProps) {
+}: ButtonProps) {
   const cssButtonSize = () => {
     switch (size) {
       case BUTTON_SIZE.BIG:

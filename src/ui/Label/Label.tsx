@@ -1,12 +1,12 @@
 import React from "react";
 import label from "./label.module.css";
 
-interface iLabelProps {
+interface LabelProps {
   htmlFor: string;
   children: React.ReactNode;
 }
 
-export default function Label({ htmlFor, children }: iLabelProps) {
+export default function Label({ htmlFor, children }: LabelProps) {
   return (
     <label htmlFor={htmlFor} className={label.label}>
       {children}

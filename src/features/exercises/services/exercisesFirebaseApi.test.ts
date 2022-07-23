@@ -11,7 +11,7 @@ describe("Given firebase api for exercises", () => {
           image: "img/img.png",
           primaryTarget: "Pases",
           secondaryTarget: "Velocidad",
-          sources: "http://pagina.com/recursos",
+          sources: "urlPage",
         },
         "2": {
           creationDate: "2022-07-17T15:59:59.532Z",
@@ -20,7 +20,7 @@ describe("Given firebase api for exercises", () => {
           image: "img/img.png",
           primaryTarget: "Pases",
           secondaryTarget: "Velocidad",
-          sources: "http://pagina.com/recursos",
+          sources: "urlPage",
         },
       };
       const expectedResult = [
@@ -32,7 +32,7 @@ describe("Given firebase api for exercises", () => {
           image: "img/img.png",
           primaryTarget: "Pases",
           secondaryTarget: "Velocidad",
-          sources: "http://pagina.com/recursos",
+          sources: "urlPage",
         },
         {
           id: "2",
@@ -42,7 +42,7 @@ describe("Given firebase api for exercises", () => {
           image: "img/img.png",
           primaryTarget: "Pases",
           secondaryTarget: "Velocidad",
-          sources: "http://pagina.com/recursos",
+          sources: "urlPage",
         },
       ];
       global.fetch = jest.fn().mockResolvedValue({ json: () => responseData });
@@ -60,7 +60,7 @@ describe("Given firebase api for exercises", () => {
         image: "img/img.png",
         primaryTarget: "Pases",
         secondaryTarget: "Velocidad",
-        sources: "http://pagina.com/recursos",
+        sources: "urlPage",
       };
       const expectedResult = {
         id: "1",
@@ -70,7 +70,7 @@ describe("Given firebase api for exercises", () => {
         image: "img/img.png",
         primaryTarget: "Pases",
         secondaryTarget: "Velocidad",
-        sources: "http://pagina.com/recursos",
+        sources: "urlPage",
       };
       global.fetch = jest.fn().mockResolvedValue({ json: () => responseData });
       const res = await api.getExerciseById("1", "token");
@@ -87,7 +87,7 @@ describe("Given firebase api for exercises", () => {
         image: "img/img.png",
         primaryTarget: "Pases",
         secondaryTarget: "Velocidad",
-        sources: "http://pagina.com/recursos",
+        sources: "urlPage",
       };
       global.fetch = jest
         .fn()
@@ -106,7 +106,7 @@ describe("Given firebase api for exercises", () => {
         image: "img/img.png",
         primaryTarget: "Pases",
         secondaryTarget: "Velocidad",
-        sources: "http://pagina.com/recursos",
+        sources: "urlPage",
       };
       global.fetch = jest
         .fn()

@@ -3,13 +3,13 @@ import { useExercises } from "../../hooks/useExercises";
 import ExerciseSelectorCard from "./components/ExerciseSelectorCard/ExerciseSelectorCard";
 import "./exercisesSelector.css";
 
-interface iExercisesSelectorProps {
+interface ExercisesSelectorProps {
   idsExercisesSelected: Array<string>;
 }
 
 export default function ExercisesSelector({
   idsExercisesSelected,
-}: iExercisesSelectorProps) {
+}: ExercisesSelectorProps) {
   const [exercisesSelected, setExercisesSelected] =
     useState(idsExercisesSelected);
   const { exercises, reloadAllExercises } = useExercises();

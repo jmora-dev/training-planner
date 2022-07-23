@@ -1,9 +1,9 @@
 import { exercisesActionsCreators } from "./exercisesActionsCreators";
 import { exercisesReducer } from "./exercisesReducer";
-import { iExercisesState } from "./iExercisesState";
+import { IExercisesState } from "./IExercisesState";
 
 describe("Given exercises reducer function", () => {
-  let state: iExercisesState;
+  let state: IExercisesState;
 
   beforeEach(() => {
     state = {
@@ -16,7 +16,7 @@ describe("Given exercises reducer function", () => {
           image: "img/img.png",
           primaryTarget: "Pases",
           secondaryTarget: "Velocidad",
-          sources: "http://pagina.com/recursos",
+          sources: "urlPage",
         },
       ],
     };
@@ -54,7 +54,7 @@ describe("Given exercises reducer function", () => {
         image: "img/img2.png",
         primaryTarget: "Pases 2",
         secondaryTarget: "Velocidad 2",
-        sources: "http://pagina.com/recursos2",
+        sources: "urlPage2",
       };
       const result = exercisesReducer(
         state,
@@ -75,7 +75,7 @@ describe("Given exercises reducer function", () => {
         image: "img/img2.png",
         primaryTarget: "Pases 2",
         secondaryTarget: "Velocidad 2",
-        sources: "http://pagina.com/recursos2",
+        sources: "urlPage2",
       };
       const result = exercisesReducer(
         state,

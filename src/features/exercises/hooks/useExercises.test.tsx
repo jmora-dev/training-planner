@@ -4,7 +4,7 @@ import { api } from "../services/exercisesFirebaseApi";
 import { renderWithProviders } from "../../../redux/renderWithProviders";
 import { fireEvent, screen, waitFor } from "@testing-library/react";
 import { useState } from "react";
-import { iExercise } from "../interfaces/iExercise";
+import { IExercise } from "../interfaces/IExercise";
 
 jest.mock("../services/exercisesFirebaseApi");
 
@@ -17,7 +17,7 @@ const exercisesForReloadAll = [
     image: "img/img.png",
     primaryTarget: "Pases",
     secondaryTarget: "Velocidad",
-    sources: "http://pagina.com/recursos",
+    sources: "urlPage",
   },
   {
     id: "2",
@@ -27,7 +27,7 @@ const exercisesForReloadAll = [
     image: "img/img.png",
     primaryTarget: "Pases",
     secondaryTarget: "Velocidad",
-    sources: "http://pagina.com/recursos",
+    sources: "urlPage",
   },
 ];
 
@@ -45,7 +45,7 @@ describe("Given useExercise hook", () => {
       } = useExercises();
 
       const [exerciseSearched, setExerciseSearched] =
-        useState<iExercise | null>(null);
+        useState<IExercise | null>(null);
 
       const getById = () => {
         getExerciseById("1").then((res) => {
@@ -62,7 +62,7 @@ describe("Given useExercise hook", () => {
           image: "img/img.png",
           primaryTarget: "Pases",
           secondaryTarget: "Velocidad",
-          sources: "http://pagina.com/recursos",
+          sources: "urlPage",
         });
       };
 
@@ -74,7 +74,7 @@ describe("Given useExercise hook", () => {
           image: "img/img.png",
           primaryTarget: "Pases",
           secondaryTarget: "Velocidad",
-          sources: "http://pagina.com/recursos",
+          sources: "urlPage",
         });
       };
 
@@ -124,7 +124,7 @@ describe("Given useExercise hook", () => {
         image: "img/img.png",
         primaryTarget: "Pases",
         secondaryTarget: "Velocidad",
-        sources: "http://pagina.com/recursos",
+        sources: "urlPage",
       });
       renderWithProviders(<TestComponent />);
       screen.getByText(/^Searched:$/i);
@@ -157,7 +157,7 @@ describe("Given useExercise hook", () => {
         image: "img/img.png",
         primaryTarget: "Pases",
         secondaryTarget: "Velocidad",
-        sources: "http://pagina.com/recursos",
+        sources: "urlPage",
       });
       renderWithProviders(<TestComponent />);
       const reloadAllButton = screen.getByText(/ReloadAll/i);

@@ -1,10 +1,10 @@
 import { iTraining } from "../../interfaces/iTraining";
 
-interface iTrainingInfoProps {
+interface TrainingInfoProps {
   training: iTraining;
 }
 
-export default function TrainingInfo({ training }: iTrainingInfoProps) {
+export default function TrainingInfo({ training }: TrainingInfoProps) {
   return (
     <div>
       <h2>{training.name}</h2>

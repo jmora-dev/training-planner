@@ -5,7 +5,7 @@ import ExerciseForm from "./ExerciseForm";
 describe("Given ExerciseForm component", () => {
   describe("When initial data is undefined", () => {
     test("Then all text box should be empty string", () => {
-      renderWithProviders(<ExerciseForm onSave={() => {}} />);
+      renderWithProviders(<ExerciseForm onSave={() => jest.fn()} />);
 
       const inputs = screen.getAllByRole("textbox");
       inputs.forEach((input) => {
@@ -27,7 +27,7 @@ describe("Given ExerciseForm component", () => {
         sources: "Enlaces fuentes",
       };
       renderWithProviders(
-        <ExerciseForm initialData={exercise} onSave={() => {}} />
+        <ExerciseForm initialData={exercise} onSave={() => jest.fn()} />
       );
       const inputs = screen.getAllByRole("textbox");
       inputs.forEach((input) => {
