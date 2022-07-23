@@ -3,12 +3,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { ROUTES } from "../../../config/routes";
 import ExerciseForm from "../components/ExerciseForm/ExerciseForm";
 import { useExercises } from "../hooks/useExercises";
-import { IExercise } from "../interfaces/IExercise";
+import { Exercise } from "../interfaces/Exercise";
 
 export default function UpdateExercise() {
   const { getExerciseById, updateExercise } = useExercises();
   const [loading, setLoading] = useState<boolean>(true);
-  const [exercise, setExercise] = useState<IExercise | null>(null);
+  const [exercise, setExercise] = useState<Exercise | null>(null);
   const navigate = useNavigate();
   const { exerciseId } = useParams();
 
@@ -22,7 +22,7 @@ export default function UpdateExercise() {
     }
   }, [exerciseId, getExerciseById]);
 
-  const onSave = (updateData: IExercise) => {
+  const onSave = (updateData: Exercise) => {
     if (exercise) {
       updateExercise(exercise.id!, updateData).then(() => {
         navigate(ROUTES.EXERCISES);

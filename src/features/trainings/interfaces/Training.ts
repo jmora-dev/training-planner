@@ -1,4 +1,4 @@
-export interface ITraining {
+export interface Training {
   id?: string;
   creationDate: string;
   name: string;

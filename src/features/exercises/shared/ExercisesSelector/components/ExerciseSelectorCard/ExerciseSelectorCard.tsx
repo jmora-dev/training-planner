@@ -1,9 +1,9 @@
 import { Card } from "../../../../../../ui";
-import { IExercise } from "../../../../interfaces/IExercise";
+import { Exercise } from "../../../../interfaces/Exercise";
 import "./exerciseSelectorCard.css";
 
 interface ExerciseSelectorCardProps {
-  exercise: IExercise;
+  exercise: Exercise;
   isSelected: boolean;
   selectExercise: (id: string) => void;
 }

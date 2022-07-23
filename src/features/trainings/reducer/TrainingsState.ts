@@ -1,5 +1,5 @@
-import { ITraining } from "../interfaces/ITraining";
+import { Training } from "../interfaces/Training";
 
 export interface TrainingsState {
-  data: Array<ITraining>;
+  data: Array<Training>;
 }
