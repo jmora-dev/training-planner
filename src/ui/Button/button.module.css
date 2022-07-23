@@ -1,0 +1,47 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: var(--default-radius);
+  border: 0;
+}
+
+.small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+.normal {
+  padding: 0.55rem 1rem;
+  font-size: 0.9rem;
+}
+
+.big {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+}
+
+.solid__primary {
+  background-color: rgb(77, 146, 243);
+  color: #fff;
+  transition: all 0.1s linear;
+}
+.solid__primary:hover,
+.solid__primary:focus {
+  background-color: rgb(55, 125, 222);
+  transition: all 0.1s linear;
+}
+
+.solid__secondary {
+  background-color: rgb(240, 240, 240);
+  color: var(--default-color);
+  transition: all 0.1s linear;
+}
+.solid__secondary:hover,
+.solid__secondary:focus {
+  background-color: rgb(220, 220, 220);
+  transition: all 0.1s linear;
+}
