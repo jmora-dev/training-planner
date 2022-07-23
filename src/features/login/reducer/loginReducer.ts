@@ -1,13 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { iLoginState } from "./iLoginState";
+import { LoginState } from "./LoginState";
 import { loginActionsCreators } from "./loginActionsCreators";
 
-const INITIAL_STATE: iLoginState = {
+const INITIAL_STATE: LoginState = {
   authenticated: false,
   token: "",
 };
 
-export const loginReducer = createReducer<iLoginState>(
+export const loginReducer = createReducer<LoginState>(
   INITIAL_STATE,
   (builder) => {
     return builder

@@ -3,12 +3,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { ROUTES } from "../../../config/routes";
 import TrainingForm from "../components/TrainingForm/TrainingForm";
 import { useTrainings } from "../hooks/useTrainings";
-import { iTraining } from "../interfaces/iTraining";
+import { ITraining } from "../interfaces/ITraining";
 
 export default function UpdateTraining() {
   const { getTrainingById, updateTraining } = useTrainings();
   const [loading, setLoading] = useState<boolean>(true);
-  const [training, setTraining] = useState<iTraining | null>(null);
+  const [training, setTraining] = useState<ITraining | null>(null);
   const navigate = useNavigate();
   const { trainingId } = useParams();
 
@@ -22,10 +22,12 @@ export default function UpdateTraining() {
     }
   }, [trainingId, getTrainingById]);
 
-  const onSave = (updateData: iTraining) => {
-    updateTraining(training!.id!, updateData).then(() => {
-      navigate("/");
-    });
+  const onSave = (updateData: ITraining) => {
+    if (training) {
+      updateTraining(training.id!, updateData).then(() => {
+        navigate("/");
+      });
+    }
   };
 
   if (loading) {

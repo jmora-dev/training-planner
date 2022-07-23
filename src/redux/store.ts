@@ -20,14 +20,5 @@ export function setupStore(preloadedState?: PreloadedState<RootState>) {
   });
 }
 
-// export const store = configureStore({
-//   reducer: {
-//     login: loginReducer,
-//     exercises: exercisesReducer,
-//     trainings: trainingsReducer,
-//   },
-//   preloadedState,
-// });
-
 export type RootState = ReturnType<typeof appReducers>;
 export type AppStore = ReturnType<typeof setupStore>;

@@ -1,9 +1,9 @@
 import { trainingsActionsCreators } from "./trainingsActionsCreators";
 import { trainingsReducer } from "./trainingsReducer";
-import { iTrainingsState } from "./iTrainingsState";
+import { TrainingsState } from "./TrainingsState";
 
 describe("Given exercises reducer function", () => {
-  let state: iTrainingsState;
+  let state: TrainingsState;
 
   beforeEach(() => {
     state = {

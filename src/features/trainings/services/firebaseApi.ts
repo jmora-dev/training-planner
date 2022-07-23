@@ -1,6 +1,6 @@
-import { iTraining } from "../interfaces/iTraining";
+import { ITraining } from "../interfaces/ITraining";
 
-const getTrainings = (token: string): Promise<Array<iTraining>> => {
+const getTrainings = (token: string): Promise<Array<ITraining>> => {
   return fetch(process.env.REACT_APP_API_URL + `/trainings.json?auth=${token}`)
     .then((res) => res.json())
     .then((res) => {
@@ -10,7 +10,7 @@ const getTrainings = (token: string): Promise<Array<iTraining>> => {
     });
 };
 
-const getTrainingById = (id: string, token: string): Promise<iTraining> => {
+const getTrainingById = (id: string, token: string): Promise<ITraining> => {
   return fetch(
     process.env.REACT_APP_API_URL + `/trainings/${id}.json?auth=${token}`
   )
@@ -18,7 +18,7 @@ const getTrainingById = (id: string, token: string): Promise<iTraining> => {
     .then((res) => ({ ...res, id: id }));
 };
 
-const insertTraining = (data: iTraining, token: string): Promise<string> => {
+const insertTraining = (data: ITraining, token: string): Promise<string> => {
   return fetch(
     process.env.REACT_APP_API_URL + `/trainings.json?auth=${token}`,
     {
@@ -33,7 +33,7 @@ const insertTraining = (data: iTraining, token: string): Promise<string> => {
 
 export const updateTraining = (
   id: string,
-  data: Partial<iTraining>,
+  data: Partial<ITraining>,
   token: string
 ) => {
   const update = { ...data };

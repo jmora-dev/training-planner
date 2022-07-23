@@ -1,5 +1,5 @@
 import { IExercise } from "../interfaces/IExercise";
 
-export interface IExercisesState {
+export interface ExercisesState {
   data: Array<IExercise>;
 }

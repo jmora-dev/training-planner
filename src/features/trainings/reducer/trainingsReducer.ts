@@ -1,12 +1,12 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { trainingsActionsCreators } from "./trainingsActionsCreators";
-import { iTrainingsState } from "./iTrainingsState";
+import { TrainingsState } from "./TrainingsState";
 
-const INITIAL_STATE: iTrainingsState = {
+const INITIAL_STATE: TrainingsState = {
   data: [],
 };
 
-export const trainingsReducer = createReducer<iTrainingsState>(
+export const trainingsReducer = createReducer<TrainingsState>(
   INITIAL_STATE,
   (builder) => {
     return builder
