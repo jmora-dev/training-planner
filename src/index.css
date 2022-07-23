@@ -1,3 +1,8 @@
+:root {
+  --default-radius: 0.3rem;
+  --default-font-color: rgba(0, 0, 0, 0.87);
+}
+
 * {
   box-sizing: border-box;
   font-family: Roboto, sans-serif;

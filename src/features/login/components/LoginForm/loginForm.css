@@ -1,0 +1,15 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form__input-group {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.login-form__buttons-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}

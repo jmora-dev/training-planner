@@ -3,7 +3,7 @@ import { PRIVATE_SECTION, ROUTES } from "./config/routes";
 import AddExercise from "./features/exercises/pages/AddExercise";
 import Exercises from "./features/exercises/pages/Exercises";
 import UpdateExercise from "./features/exercises/pages/UpdateExercise";
-import Login from "./features/login/pages/Login";
+import Login from "./features/login/pages/Login/Login";
 import Logout from "./features/login/pages/Logout";
 import PrivateRoute from "./features/login/router/PrivateRoute";
 import PublicRoute from "./features/login/router/PublicRoute";
