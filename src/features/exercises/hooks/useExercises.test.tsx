@@ -17,7 +17,7 @@ const exercisesForReloadAll = [
     image: "img/img.png",
     primaryTarget: "Pases",
     secondaryTarget: "Velocidad",
-    sources: "http://pagina.com/recursos",
+    sources: "urlPage",
   },
   {
     id: "2",
@@ -27,7 +27,7 @@ const exercisesForReloadAll = [
     image: "img/img.png",
     primaryTarget: "Pases",
     secondaryTarget: "Velocidad",
-    sources: "http://pagina.com/recursos",
+    sources: "urlPage",
   },
 ];
 
@@ -62,7 +62,7 @@ describe("Given useExercise hook", () => {
           image: "img/img.png",
           primaryTarget: "Pases",
           secondaryTarget: "Velocidad",
-          sources: "http://pagina.com/recursos",
+          sources: "urlPage",
         });
       };
 
@@ -74,7 +74,7 @@ describe("Given useExercise hook", () => {
           image: "img/img.png",
           primaryTarget: "Pases",
           secondaryTarget: "Velocidad",
-          sources: "http://pagina.com/recursos",
+          sources: "urlPage",
         });
       };
 
@@ -124,7 +124,7 @@ describe("Given useExercise hook", () => {
         image: "img/img.png",
         primaryTarget: "Pases",
         secondaryTarget: "Velocidad",
-        sources: "http://pagina.com/recursos",
+        sources: "urlPage",
       });
       renderWithProviders(<TestComponent />);
       screen.getByText(/^Searched:$/i);
@@ -157,7 +157,7 @@ describe("Given useExercise hook", () => {
         image: "img/img.png",
         primaryTarget: "Pases",
         secondaryTarget: "Velocidad",
-        sources: "http://pagina.com/recursos",
+        sources: "urlPage",
       });
       renderWithProviders(<TestComponent />);
       const reloadAllButton = screen.getByText(/ReloadAll/i);

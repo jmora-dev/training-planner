@@ -14,7 +14,7 @@ const exercises = [
     image: "img/img.png",
     primaryTarget: "Pases",
     secondaryTarget: "Velocidad",
-    sources: "http://pagina.com/recursos",
+    sources: "urlPage",
   },
   {
     id: "2",
@@ -24,7 +24,7 @@ const exercises = [
     image: "img/img.png",
     primaryTarget: "Pases",
     secondaryTarget: "Velocidad",
-    sources: "http://pagina.com/recursos",
+    sources: "urlPage",
   },
 ];
 
