@@ -1,4 +1,4 @@
-export interface iLoginState {
+export interface LoginState {
   authenticated: boolean;
   token: string;
 }

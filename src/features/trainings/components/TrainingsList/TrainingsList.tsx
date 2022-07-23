@@ -1,8 +1,8 @@
-import { iTraining } from "../../interfaces/iTraining";
+import { ITraining } from "../../interfaces/ITraining";
 import TrainingCard from "../TrainingCard/TrainingCard";
 
 interface TrainingsListProps {
-  trainings: Array<iTraining>;
+  trainings: Array<ITraining>;
 }
 
 export default function TrainingsList({ trainings }: TrainingsListProps) {

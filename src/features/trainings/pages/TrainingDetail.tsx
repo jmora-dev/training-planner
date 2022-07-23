@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TrainingInfo from "../components/TrainingInfo/TrainingInfo";
 import { useTrainings } from "../hooks/useTrainings";
-import { iTraining } from "../interfaces/iTraining";
+import { ITraining } from "../interfaces/ITraining";
 
 export default function TrainingDetail() {
   const { trainingId } = useParams();
   const { getTrainingById } = useTrainings();
   const [loading, setLoading] = useState<boolean>(true);
-  const [training, setTraining] = useState<iTraining | null>(null);
+  const [training, setTraining] = useState<ITraining | null>(null);
 
   useEffect(() => {
     if (!trainingId) {

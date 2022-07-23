@@ -75,8 +75,8 @@ export default function Button({
           {children}
         </button>
       );
-    default:
     case BUTTON_TYPE.BUTTON:
+    default:
       return (
         <button onClick={onClick} className={getClassName()}>
           {children}

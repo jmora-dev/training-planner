@@ -1,7 +1,7 @@
-import { iTraining } from "../../interfaces/iTraining";
+import { ITraining } from "../../interfaces/ITraining";
 
 interface TrainingInfoProps {
-  training: iTraining;
+  training: ITraining;
 }
 
 export default function TrainingInfo({ training }: TrainingInfoProps) {
