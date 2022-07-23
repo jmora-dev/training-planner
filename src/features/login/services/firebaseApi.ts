@@ -9,6 +9,11 @@ const login = (email: string, password: string): Promise<string> => {
   )
     .then((res) => res.json())
     .then((res) => {
+      if (res.error) {
+        if (res.error.code === 400)
+          throw new Error("Invalid username or password");
+        throw new Error("Login error");
+      }
       return res.idToken as string;
     });
 };
