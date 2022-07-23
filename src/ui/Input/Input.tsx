@@ -6,7 +6,7 @@ export enum INPUT_TYPE {
   PASSWORD = "password",
 }
 
-interface iInputTypeProps {
+interface InputTypeProps {
   inputType?: INPUT_TYPE;
   name: string;
   value: string;
@@ -18,7 +18,7 @@ export default function Input({
   value,
   name,
   onChange,
-}: iInputTypeProps) {
+}: InputTypeProps) {
   return (
     <input
       type={inputType}

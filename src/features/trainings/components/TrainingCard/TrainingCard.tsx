@@ -3,11 +3,11 @@ import { ROUTES } from "../../../../config/routes";
 import { useTrainings } from "../../hooks/useTrainings";
 import { iTraining } from "../../interfaces/iTraining";
 
-interface iTrainingCardProps {
+interface TrainingCardProps {
   training: iTraining;
 }
 
-export default function TrainingCard({ training }: iTrainingCardProps) {
+export default function TrainingCard({ training }: TrainingCardProps) {
   const { deleteTraining } = useTrainings();
   return (
     <div>

@@ -1,10 +1,10 @@
 import { fireEvent, screen } from "@testing-library/react";
 import { renderWithProviders } from "../../../../../../redux/renderWithProviders";
-import { iExercise } from "../../../../interfaces/iExercise";
+import { IExercise } from "../../../../interfaces/IExercise";
 import ExerciseSelectorCard from "./ExerciseSelectorCard";
 
 describe("Given", () => {
-  let exercise: iExercise;
+  let exercise: IExercise;
   beforeEach(() => {
     exercise = {
       id: "1",

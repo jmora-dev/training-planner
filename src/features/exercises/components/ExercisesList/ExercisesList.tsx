@@ -1,12 +1,12 @@
-import { iExercise } from "../../interfaces/iExercise";
+import { IExercise } from "../../interfaces/IExercise";
 import ExerciseCard from "../ExerciseCard/ExerciseCard";
 import "./exercisesList.css";
 
-interface iExercisesListProps {
-  exercises: Array<iExercise>;
+interface ExercisesListProps {
+  exercises: Array<IExercise>;
 }
 
-export default function ExercisesList({ exercises }: iExercisesListProps) {
+export default function ExercisesList({ exercises }: ExercisesListProps) {
   return (
     <ul className="exercise-list">
       {exercises.map((exercise) => (

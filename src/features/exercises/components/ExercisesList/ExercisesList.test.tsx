@@ -1,13 +1,13 @@
 import { screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { renderWithProviders } from "../../../../redux/renderWithProviders";
-import { iExercise } from "../../interfaces/iExercise";
+import { IExercise } from "../../interfaces/IExercise";
 import ExercisesList from "./ExercisesList";
 
 describe("Given ExercisesList component", () => {
   describe("When receive 2 items", () => {
     test("Then should render 2 items card", () => {
-      const exercises: Array<iExercise> = [
+      const exercises: Array<IExercise> = [
         {
           id: "1",
           creationDate: "2022-07-14T15:51:44.850Z",

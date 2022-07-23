@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import { iExercise } from "../interfaces/iExercise";
+import { IExercise } from "../interfaces/IExercise";
 import { exercisesActionsCreators } from "../reducer/exercisesActionsCreators";
 import { api } from "../services/exercisesFirebaseApi";
 
@@ -24,7 +24,7 @@ export function useExercises() {
   );
 
   const insertExercise = useCallback(
-    (data: iExercise) => {
+    (data: IExercise) => {
       return api.insertExercise(data, token).then((res) => {
         dispatch(
           exercisesActionsCreators.add({
@@ -38,7 +38,7 @@ export function useExercises() {
   );
 
   const updateExercise = useCallback(
-    (id: string, data: iExercise) => {
+    (id: string, data: IExercise) => {
       return api.updateExercise(id, data, token).then((res) => {
         dispatch(exercisesActionsCreators.update(res));
       });

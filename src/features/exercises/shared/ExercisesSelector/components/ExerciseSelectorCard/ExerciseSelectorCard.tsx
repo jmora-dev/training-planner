@@ -1,9 +1,9 @@
 import { Card } from "../../../../../../ui";
-import { iExercise } from "../../../../interfaces/iExercise";
+import { IExercise } from "../../../../interfaces/IExercise";
 import "./exerciseSelectorCard.css";
 
-interface iExerciseSelectorCardProps {
-  exercise: iExercise;
+interface ExerciseSelectorCardProps {
+  exercise: IExercise;
   isSelected: boolean;
   selectExercise: (id: string) => void;
 }
@@ -12,7 +12,7 @@ export default function ExerciseSelectorCard({
   exercise,
   isSelected,
   selectExercise,
-}: iExerciseSelectorCardProps) {
+}: ExerciseSelectorCardProps) {
   return (
     <article
       onClick={() => selectExercise(exercise.id!)}

@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from "react";
 import { iTraining } from "../../interfaces/iTraining";
-interface iExerciseFormProps {
+interface ExerciseFormProps {
   initialData?: iTraining;
   onSave: (training: iTraining) => void;
 }
@@ -20,7 +20,7 @@ const INIT_DATA: iTraining = {
 export default function TrainingForm({
   initialData = INIT_DATA,
   onSave = () => {},
-}: iExerciseFormProps) {
+}: ExerciseFormProps) {
   const [data, setData] = useState<iTraining>(initialData);
 
   const handleSubmit = (event: SyntheticEvent) => {

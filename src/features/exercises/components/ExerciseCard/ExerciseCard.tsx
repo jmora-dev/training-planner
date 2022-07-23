@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../../config/routes";
 import { Card } from "../../../../ui";
-import { iExercise } from "../../interfaces/iExercise";
+import { IExercise } from "../../interfaces/IExercise";
 
 interface ExerciseCardProps {
-  exercise: iExercise;
+  exercise: IExercise;
 }
 
 export default function ExerciseCard({ exercise }: ExerciseCardProps) {

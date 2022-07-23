@@ -1,11 +1,11 @@
 import { iTraining } from "../../interfaces/iTraining";
 import TrainingCard from "../TrainingCard/TrainingCard";
 
-interface iTrainingsListProps {
+interface TrainingsListProps {
   trainings: Array<iTraining>;
 }
 
-export default function TrainingsList({ trainings }: iTrainingsListProps) {
+export default function TrainingsList({ trainings }: TrainingsListProps) {
   return (
     <ul>
       {trainings.map((training) => (
