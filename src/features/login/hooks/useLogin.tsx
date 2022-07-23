@@ -10,9 +10,12 @@ export function useLogin() {
 
   const signIn = useCallback(
     (user: string, password: string) => {
-      api.login(user, password).then((res) => {
-        dispatch(loginActionsCreators.login(res));
-      });
+      api
+        .login(user, password)
+        .then((res) => {
+          dispatch(loginActionsCreators.login(res));
+        })
+        .catch((res) => console.log(res));
     },
     [dispatch]
   );
