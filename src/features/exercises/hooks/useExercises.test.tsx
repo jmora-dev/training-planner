@@ -4,7 +4,7 @@ import { api } from "../services/exercisesFirebaseApi";
 import { renderWithProviders } from "../../../redux/renderWithProviders";
 import { fireEvent, screen, waitFor } from "@testing-library/react";
 import { useState } from "react";
-import { IExercise } from "../interfaces/IExercise";
+import { Exercise } from "../interfaces/Exercise";
 
 jest.mock("../services/exercisesFirebaseApi");
 
@@ -44,8 +44,9 @@ describe("Given useExercise hook", () => {
         deleteExercise,
       } = useExercises();
 
-      const [exerciseSearched, setExerciseSearched] =
-        useState<IExercise | null>(null);
+      const [exerciseSearched, setExerciseSearched] = useState<Exercise | null>(
+        null
+      );
 
       const getById = () => {
         getExerciseById("1").then((res) => {

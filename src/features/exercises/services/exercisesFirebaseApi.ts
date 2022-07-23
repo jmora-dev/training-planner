@@ -1,6 +1,6 @@
-import { IExercise } from "../interfaces/IExercise";
+import { Exercise } from "../interfaces/Exercise";
 
-const getExercises = (token: string): Promise<Array<IExercise>> => {
+const getExercises = (token: string): Promise<Array<Exercise>> => {
   return fetch(process.env.REACT_APP_API_URL + `/exercises.json?auth=${token}`)
     .then((res) => res.json())
     .then((res) => {
@@ -10,7 +10,7 @@ const getExercises = (token: string): Promise<Array<IExercise>> => {
     });
 };
 
-const getExerciseById = (id: string, token: string): Promise<IExercise> => {
+const getExerciseById = (id: string, token: string): Promise<Exercise> => {
   return fetch(
     process.env.REACT_APP_API_URL + `/exercises/${id}.json?auth=${token}`
   )
@@ -18,7 +18,7 @@ const getExerciseById = (id: string, token: string): Promise<IExercise> => {
     .then((res) => ({ ...res, id: id }));
 };
 
-const insertExercise = (data: IExercise, token: string): Promise<string> => {
+const insertExercise = (data: Exercise, token: string): Promise<string> => {
   return fetch(
     process.env.REACT_APP_API_URL + `/exercises.json?auth=${token}`,
     {
@@ -33,9 +33,9 @@ const insertExercise = (data: IExercise, token: string): Promise<string> => {
 
 export const updateExercise = (
   id: string,
-  data: Partial<IExercise>,
+  data: Partial<Exercise>,
   token: string
-): Promise<IExercise> => {
+): Promise<Exercise> => {
   const update = { ...data };
   if (data.id) delete data.id;
   return fetch(

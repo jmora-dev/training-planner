@@ -1,9 +1,9 @@
-import { IExercise } from "../../interfaces/IExercise";
+import { Exercise } from "../../interfaces/Exercise";
 import ExerciseCard from "../ExerciseCard/ExerciseCard";
 import "./exercisesList.css";
 
 interface ExercisesListProps {
-  exercises: Array<IExercise>;
+  exercises: Array<Exercise>;
 }
 
 export default function ExercisesList({ exercises }: ExercisesListProps) {
