@@ -3,6 +3,7 @@
   height: 100vh;
   display: grid;
   place-content: center;
+  background-color: var(--background-primary-color);
 }
 
 .login__form-container {
