@@ -8,7 +8,7 @@ describe("Given Card component", () => {
         <Card>
           <Card.Image src="img/img.png" alt="not found" />
           <Card.Content>
-            <Card.Title text="Title" />
+            <Card.ArticleTitle text="Title" />
             <Card.Description text="Description" />
             <Card.Tags tags={["tag1", "tag2"]} />
           </Card.Content>

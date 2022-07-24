@@ -5,6 +5,11 @@
   border: 1px solid rgba(144, 202, 249, 0.46);
 }
 
+.card-section-title {
+  padding: 0;
+  margin: 0;
+}
+
 .card__image {
   display: block;
   background-size: cover;

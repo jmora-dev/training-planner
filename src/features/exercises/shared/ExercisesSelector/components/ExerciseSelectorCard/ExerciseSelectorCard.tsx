@@ -28,7 +28,7 @@ export default function ExerciseSelectorCard({
       <Card>
         <Card.Image alt={exercise.name} src={exercise.image} />
         <Card.Content>
-          <Card.Title text={exercise.name} />
+          <Card.ArticleTitle text={exercise.name} />
           <Card.Description text={exercise.description} />
         </Card.Content>
       </Card>

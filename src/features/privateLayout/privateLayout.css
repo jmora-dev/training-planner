@@ -12,5 +12,6 @@
   flex-grow: 1;
   background-color: var(--background-primary-color);
   margin: 2rem 1.5rem 0 0;
+  padding: 1.5rem;
   border-radius: var(--default-radius) var(--default-radius) 0 0;
 }
