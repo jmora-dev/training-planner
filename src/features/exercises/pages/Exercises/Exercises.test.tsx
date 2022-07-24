@@ -1,7 +1,7 @@
 import { waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { renderWithProviders } from "../../../redux/renderWithProviders";
-import { useExercises } from "../hooks/useExercises";
+import { renderWithProviders } from "../../../../redux/renderWithProviders";
+import { useExercises } from "../../hooks/useExercises";
 import Exercises from "./Exercises";
 
 jest.mock("../hooks/useExercises");

@@ -1,0 +1,10 @@
+.exercises-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--section-board-padding);
+}
+
+.exercise-section__title-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
