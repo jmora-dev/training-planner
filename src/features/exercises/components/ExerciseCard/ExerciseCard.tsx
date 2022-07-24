@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import { ROUTES } from "../../../../config/routes";
-import { Card } from "../../../../ui";
+import { Button, Card } from "../../../../ui";
+import { BUTTON_STYLE, BUTTON_TYPE } from "../../../../ui/Button/Button";
 import { Exercise } from "../../interfaces/Exercise";
+import "./exerciseCard.css";
 
 interface ExerciseCardProps {
   exercise: Exercise;
@@ -16,7 +17,22 @@ export default function ExerciseCard({ exercise }: ExerciseCardProps) {
         <Card.Description text={exercise.description} />
       </Card.Content>
       <Card.Content>
-        <Link to={`${ROUTES.EXERCISES_UPDATE}/${exercise.id}`}>Editar</Link>
+        <div className="exercise-card__buttons-container">
+          <Button
+            type={BUTTON_TYPE.LINK}
+            style={BUTTON_STYLE.TEXT}
+            to={`${ROUTES.EXERCISES_DETAIL}/${exercise.id}`}
+          >
+            Ver
+          </Button>
+          <Button
+            type={BUTTON_TYPE.LINK}
+            style={BUTTON_STYLE.TEXT}
+            to={`${ROUTES.EXERCISES_UPDATE}/${exercise.id}`}
+          >
+            Editar
+          </Button>
+        </div>
       </Card.Content>
     </Card>
   );

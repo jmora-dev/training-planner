@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { PRIVATE_SECTION, ROUTES } from "./config/routes";
 import AddExercise from "./features/exercises/pages/AddExercise";
+import ExerciseDetail from "./features/exercises/pages/ExerciseDetail/ExerciseDetail";
 import Exercises from "./features/exercises/pages/Exercises/Exercises";
 import UpdateExercise from "./features/exercises/pages/UpdateExercise";
 import Login from "./features/login/pages/Login/Login";
@@ -31,10 +32,10 @@ export default function App() {
             element={<UpdateTraining />}
           />
           <Route path={ROUTES.EXERCISES} element={<Exercises />} />
-          {/* <Route
-            path={ROUTES.EXERCISE_DETAIL + "/:exerciseId"}
+          <Route
+            path={ROUTES.EXERCISES_DETAIL + "/:exerciseId"}
             element={<ExerciseDetail />}
-          /> */}
+          />
           <Route path={ROUTES.EXERCISES_ADD} element={<AddExercise />} />
           <Route
             path={ROUTES.EXERCISES_UPDATE + "/:exerciseId"}

@@ -25,6 +25,19 @@
   font-size: 1rem;
 }
 
+.text {
+  color: rgb(114, 50, 174);
+  background-color: transparent;
+  transition: all 0.1s linear;
+}
+
+.text:hover,
+.text:focus {
+  color: rgb(85, 26, 139);
+  background-color: rgba(120, 56, 181, 0.2);
+  transition: all 0.1s linear;
+}
+
 .solid__primary {
   background-color: rgb(77, 146, 243);
   color: #fff;
