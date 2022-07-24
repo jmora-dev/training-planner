@@ -1,0 +1,44 @@
+.sidebar {
+  height: 100vh;
+  width: 140px;
+  padding: 1rem;
+}
+
+.menu-list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-list > li {
+  list-style: none;
+}
+
+.menu-item {
+  text-decoration: none;
+  display: flex;
+  gap: 0.4rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: var(--default-font-color);
+  border-radius: var(--default-radius);
+}
+
+.menu-item:hover,
+.menu-item:focus {
+  color: rgb(85, 26, 139);
+  background-color: rgba(120, 56, 181, 0.2);
+}
+
+.menu-item-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.334;
+}
+
+.menu-divider {
+  border-top: 1px solid #eee;
+}

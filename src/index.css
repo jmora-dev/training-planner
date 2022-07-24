@@ -1,13 +1,10 @@
 :root {
   --default-radius: 0.3rem;
   --default-font-color: rgba(0, 0, 0, 0.87);
+  --background-primary-color: rgb(227, 242, 253);
 }
 
 * {
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
-}
-
-body {
-  background-color: rgb(227, 242, 253);
 }
