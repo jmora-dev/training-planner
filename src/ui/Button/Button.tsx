@@ -52,7 +52,8 @@ export default function Button({
     switch (style) {
       case BUTTON_STYLE.SOLID_PRIMARY:
         return button.solid__primary;
-      case BUTTON_STYLE.SOLID_SECONDARY:
+      case BUTTON_STYLE.TEXT:
+        return button.text;
       default:
         return button.solid__secondary;
     }
