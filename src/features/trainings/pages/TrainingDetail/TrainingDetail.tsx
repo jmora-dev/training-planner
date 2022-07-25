@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import TrainingInfo from "../components/TrainingInfo/TrainingInfo";
-import { useTrainings } from "../hooks/useTrainings";
-import { Training } from "../interfaces/Training";
+import TrainingInfo from "../../components/TrainingInfo/TrainingInfo";
+import { useTrainings } from "../../hooks/useTrainings";
+import { Training } from "../../interfaces/Training";
 
 export default function TrainingDetail() {
   const { trainingId } = useParams();

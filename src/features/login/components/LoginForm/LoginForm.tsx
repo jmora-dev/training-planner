@@ -23,8 +23,8 @@ export default function LoginForm({ onSignIn }: LoginFormProps) {
     onSignIn(data);
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [event.target.name]: event.target.value });
+  const handleChange = (name: string, value: string) => {
+    setData({ ...data, [name]: value });
   };
 
   return (
@@ -52,9 +52,8 @@ export default function LoginForm({ onSignIn }: LoginFormProps) {
           type={BUTTON_TYPE.SUBMIT}
           size={BUTTON_SIZE.BIG}
           style={BUTTON_STYLE.SOLID_PRIMARY}
-        >
-          Acceder
-        </Button>
+          text="Acceder"
+        />
       </div>
     </form>
   );

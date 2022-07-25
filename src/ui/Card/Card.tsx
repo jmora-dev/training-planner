@@ -1,5 +1,6 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import cardStyle from "./card.module.css";
+import nullImage from "./djinn_notfound.png";
 
 function Card({ children }: { children: React.ReactNode | React.ReactNode[] }) {
   return <div className={cardStyle.card}>{children}</div>;
@@ -11,7 +12,19 @@ function SectionTitle({ text }: { text: string }) {
 Card.SectionTitle = SectionTitle;
 
 function Image({ src, alt }: { src: string; alt: string }) {
-  return <img src={src} alt={alt} className={cardStyle.card__image} />;
+  const onError = (event: SyntheticEvent<HTMLImageElement>) => {
+    event.currentTarget.onerror = null;
+    event.currentTarget.src = nullImage;
+  };
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      onError={onError}
+      className={cardStyle.card__image}
+    />
+  );
 }
 Card.Image = Image;
 

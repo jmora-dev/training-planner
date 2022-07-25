@@ -10,7 +10,7 @@ interface InputTypeProps {
   inputType?: INPUT_TYPE;
   name: string;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (name: string, value: string) => void;
 }
 
 export default function Input({
@@ -19,12 +19,16 @@ export default function Input({
   name,
   onChange,
 }: InputTypeProps) {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(event.target.name, event.target.value);
+  };
+
   return (
     <input
       type={inputType}
       value={value}
       name={name}
-      onChange={(e) => onChange(e)}
+      onChange={handleChange}
       className={input.input}
     />
   );

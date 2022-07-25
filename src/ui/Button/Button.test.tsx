@@ -7,9 +7,7 @@ describe("Given Button component", () => {
     test("Then onClick props should be called", () => {
       const onClick = jest.fn();
       render(
-        <Button type={BUTTON_TYPE.BUTTON} onClick={onClick}>
-          Click
-        </Button>
+        <Button type={BUTTON_TYPE.BUTTON} onClick={onClick} text="Click" />
       );
       const button = screen.getByText("Click");
       fireEvent.click(button);
@@ -21,7 +19,7 @@ describe("Given Button component", () => {
       const onSubmit = jest.fn();
       render(
         <form onSubmit={onSubmit}>
-          <Button type={BUTTON_TYPE.SUBMIT}>Click</Button>
+          <Button type={BUTTON_TYPE.SUBMIT} text="Click" />
         </form>
       );
       const button = screen.getByText("Click");
@@ -33,9 +31,7 @@ describe("Given Button component", () => {
     test("Then should navigate to prop value", async () => {
       render(
         <MemoryRouter initialEntries={["Test page", "/claro"]}>
-          <Button type={BUTTON_TYPE.LINK} to="/test">
-            Click
-          </Button>
+          <Button type={BUTTON_TYPE.LINK} to="/test" text="Click" />
           <Routes>
             <Route path="/test" element={<p>Target</p>} />
           </Routes>

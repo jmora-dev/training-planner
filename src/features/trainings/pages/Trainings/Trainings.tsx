@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../../config/routes";
-import TrainingsList from "../components/TrainingsList/TrainingsList";
-import { useTrainings } from "../hooks/useTrainings";
+import { ROUTES } from "../../../../config/routes";
+import TrainingsList from "../../components/TrainingsList/TrainingsList";
+import { useTrainings } from "../../hooks/useTrainings";
 
 export default function Trainings() {
   const { trainings, reloadAllTrainings } = useTrainings();
