@@ -11,7 +11,7 @@ export default function ExercisesList({ exercises }: ExercisesListProps) {
     <ul className="exercise-list">
       {exercises.map((exercise) => (
         <li key={exercise.id} className="exercise-list__item">
-          <article>
+          <article className="exercise-list__article">
             <ExerciseCard exercise={exercise} />
           </article>
         </li>

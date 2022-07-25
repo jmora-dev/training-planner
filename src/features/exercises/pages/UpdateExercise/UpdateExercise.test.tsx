@@ -6,7 +6,7 @@ import UpdateExercise from "./UpdateExercise";
 
 import "./updateExercise.css";
 
-jest.mock("../hooks/useExercises");
+jest.mock("../../hooks/useExercises");
 jest.mock("react-router-dom", () => ({
   ...(jest.requireActual("react-router-dom") as any),
   useNavigate: jest.fn(),

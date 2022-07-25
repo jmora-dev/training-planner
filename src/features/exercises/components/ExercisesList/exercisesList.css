@@ -8,3 +8,7 @@
 .exercise-list__item {
   list-style: none;
 }
+
+.exercise-list__article {
+  height: 100%;
+}

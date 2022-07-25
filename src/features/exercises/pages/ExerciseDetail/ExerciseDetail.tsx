@@ -22,9 +22,9 @@ export default function ExerciseDetail() {
   }, [getExerciseById, exerciseId]);
 
   if (loading) {
-    return null;
+    return <p>Loading</p>;
   } else if (!exercise) {
-    return null;
+    return <p>Error</p>;
   } else {
     return (
       <Card>

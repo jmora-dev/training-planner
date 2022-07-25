@@ -4,7 +4,7 @@ import { renderWithProviders } from "../../../../redux/renderWithProviders";
 import { useExercises } from "../../hooks/useExercises";
 import Exercises from "./Exercises";
 
-jest.mock("../hooks/useExercises");
+jest.mock("../../hooks/useExercises");
 
 describe("Given Exercises component", () => {
   describe("When render the component", () => {
