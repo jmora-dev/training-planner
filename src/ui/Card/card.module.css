@@ -16,7 +16,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   width: 100%;
-  aspect-ratio: 10/5;
+  aspect-ratio: 10/8;
   object-fit: cover;
   background-color: lightslategray;
 }
@@ -27,4 +27,11 @@
 
 .card__title {
   margin-bottom: 1em;
+}
+
+.card__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
