@@ -1,0 +1,10 @@
+.training-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5em;
+  margin: 0;
+}
+
+.training-list__item {
+  list-style: none;
+}

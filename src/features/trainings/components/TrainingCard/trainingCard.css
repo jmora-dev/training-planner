@@ -1,0 +1,8 @@
+.training-card__content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.training-card__buttons-container {
+  display: flex;
+}
