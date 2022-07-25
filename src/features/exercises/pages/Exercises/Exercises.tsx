@@ -26,9 +26,9 @@ export default function Exercises() {
               type={BUTTON_TYPE.LINK}
               to={ROUTES.EXERCISES_ADD}
               style={BUTTON_STYLE.SOLID_PRIMARY}
-            >
-              <i className="fa-solid fa-plus" /> Nuevo
-            </Button>
+              text="Nuevo"
+              icon="fa-solid fa-plus"
+            />
           </div>
         </Card.Content>
       </Card>

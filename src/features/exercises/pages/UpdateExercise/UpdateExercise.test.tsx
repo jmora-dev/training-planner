@@ -1,8 +1,10 @@
 import { fireEvent, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter, useNavigate, useParams } from "react-router-dom";
-import { renderWithProviders } from "../../../redux/renderWithProviders";
-import { useExercises } from "../hooks/useExercises";
+import { renderWithProviders } from "../../../../redux/renderWithProviders";
+import { useExercises } from "../../hooks/useExercises";
 import UpdateExercise from "./UpdateExercise";
+
+import "./updateExercise.css";
 
 jest.mock("../hooks/useExercises");
 jest.mock("react-router-dom", () => ({

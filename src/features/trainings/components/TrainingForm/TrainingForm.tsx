@@ -1,8 +1,10 @@
 import { SyntheticEvent, useState } from "react";
-import { Button, Input, Label } from "../../../../ui";
-import { BUTTON_TYPE } from "../../../../ui/Button/Button";
+import { Button, Input, Label, Textarea } from "../../../../ui";
+import { BUTTON_STYLE, BUTTON_TYPE } from "../../../../ui/Button/Button";
 import { INPUT_TYPE } from "../../../../ui/Input/Input";
 import { Training } from "../../interfaces/Training";
+import "./trainingForm.css";
+
 interface ExerciseFormProps {
   initialData?: Training;
   onSave: (training: Training) => void;
@@ -35,12 +37,12 @@ export default function TrainingForm({
     onSave(updateData);
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [event.target.name]: event.target.value });
+  const handleChange = (name: string, value: string) => {
+    setData({ ...data, [name]: value });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="training-form">
       <div>
         <Label htmlFor="name">Nombre:</Label>
         <Input
@@ -52,11 +54,11 @@ export default function TrainingForm({
       </div>
       <div>
         <Label htmlFor="name">Descripción:</Label>
-        <Input
-          inputType={INPUT_TYPE.TEXT}
+        <Textarea
           name="description"
           value={data.description}
           onChange={handleChange}
+          rows={4}
         />
       </div>
       <div>
@@ -86,7 +88,11 @@ export default function TrainingForm({
           onChange={handleChange}
         />
       </div>
-      <Button type={BUTTON_TYPE.SUBMIT}>Guardar</Button>
+      <Button
+        type={BUTTON_TYPE.SUBMIT}
+        style={BUTTON_STYLE.SOLID_PRIMARY}
+        text="Guardar"
+      />
     </form>
   );
 }

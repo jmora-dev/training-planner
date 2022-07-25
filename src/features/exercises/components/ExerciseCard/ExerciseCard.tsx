@@ -22,16 +22,14 @@ export default function ExerciseCard({ exercise }: ExerciseCardProps) {
             type={BUTTON_TYPE.LINK}
             style={BUTTON_STYLE.TEXT}
             to={`${ROUTES.EXERCISES_DETAIL}/${exercise.id}`}
-          >
-            Ver
-          </Button>
+            text="Ver"
+          />
           <Button
             type={BUTTON_TYPE.LINK}
             style={BUTTON_STYLE.TEXT}
             to={`${ROUTES.EXERCISES_UPDATE}/${exercise.id}`}
-          >
-            Editar
-          </Button>
+            text="Editar"
+          />
         </div>
       </Card.Content>
     </Card>

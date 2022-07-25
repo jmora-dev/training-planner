@@ -1,6 +1,6 @@
 import AddExercise from "./AddExercise";
-import { useExercises } from "../hooks/useExercises";
-import { renderWithProviders } from "../../../redux/renderWithProviders";
+import { useExercises } from "../../hooks/useExercises";
+import { renderWithProviders } from "../../../../redux/renderWithProviders";
 import { fireEvent, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter, useNavigate } from "react-router-dom";
 

@@ -1,5 +1,9 @@
 import { SyntheticEvent, useState } from "react";
+import { Button, Input, Label, Textarea } from "../../../../ui";
+import { BUTTON_STYLE, BUTTON_TYPE } from "../../../../ui/Button/Button";
+import { INPUT_TYPE } from "../../../../ui/Input/Input";
 import { Exercise } from "../../interfaces/Exercise";
+import "./exerciseForm.css";
 
 interface ExerciseFormProps {
   initialData?: Exercise;
@@ -31,55 +35,71 @@ export default function ExerciseForm({
     onSave(updateData);
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [event.target.name]: event.target.value });
+  const handleChange = (name: string, value: string) => {
+    setData({ ...data, [name]: value });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Ejercicio:</label>
-      <input
-        type="text"
-        name="name"
-        value={data.name}
-        onChange={handleChange}
+    <form onSubmit={handleSubmit} className="exercise-form">
+      <div>
+        <Label htmlFor="name">Ejercicio:</Label>
+        <Input
+          inputType={INPUT_TYPE.TEXT}
+          name="name"
+          value={data.name}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <Label htmlFor="name">Descripción:</Label>
+        <Textarea
+          name="description"
+          value={data.description}
+          onChange={handleChange}
+          rows={4}
+        />
+      </div>
+      <div>
+        <Label htmlFor="name">Objetivo:</Label>
+        <Input
+          inputType={INPUT_TYPE.TEXT}
+          name="primaryTarget"
+          value={data.primaryTarget}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <Label htmlFor="name">Objetivo secundario:</Label>
+        <Input
+          inputType={INPUT_TYPE.TEXT}
+          name="secondaryTarget"
+          value={data.secondaryTarget}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <Label htmlFor="name">Fuentes:</Label>
+        <Input
+          inputType={INPUT_TYPE.TEXT}
+          name="sources"
+          value={data.sources}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <Label htmlFor="name">URL imagen:</Label>
+        <Input
+          inputType={INPUT_TYPE.TEXT}
+          name="image"
+          value={data.image}
+          onChange={handleChange}
+        />
+      </div>
+      <Button
+        type={BUTTON_TYPE.SUBMIT}
+        style={BUTTON_STYLE.SOLID_PRIMARY}
+        text="Guardar"
       />
-      <label htmlFor="description">Descripción:</label>
-      <input
-        type="text"
-        name="description"
-        value={data.description}
-        onChange={handleChange}
-      />
-      <label htmlFor="primaryTarget">Objetivo:</label>
-      <input
-        type="text"
-        name="primaryTarget"
-        value={data.primaryTarget}
-        onChange={handleChange}
-      />
-      <label htmlFor="secondaryTarget">Objetivo secundario:</label>
-      <input
-        type="text"
-        name="secondaryTarget"
-        value={data.secondaryTarget}
-        onChange={handleChange}
-      />
-      <label htmlFor="sources">Fuentes:</label>
-      <input
-        type="text"
-        name="sources"
-        value={data.sources}
-        onChange={handleChange}
-      />
-      <label htmlFor="image">Imagen URL:</label>
-      <input
-        type="text"
-        name="image"
-        value={data.image}
-        onChange={handleChange}
-      />
-      <button type="submit">Guardar</button>
     </form>
   );
 }

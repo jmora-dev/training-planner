@@ -1,0 +1,18 @@
+.textarea {
+  display: block;
+  padding: 16.5px 14px;
+  font-size: inherit;
+  border-radius: var(--default-radius);
+  outline: none;
+  border: 2px solid #ddd;
+  color: var(--default-font-color);
+  width: 100%;
+}
+
+.textarea:hover {
+  border-color: #888;
+}
+
+.textarea:focus {
+  border-color: rgb(41, 171, 252);
+}

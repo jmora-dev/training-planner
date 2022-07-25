@@ -11,6 +11,7 @@ export enum BUTTON_STYLE {
   TEXT,
   SOLID_PRIMARY,
   SOLID_SECONDARY,
+  SOLID_DANGER,
   OUTLINED,
 }
 
@@ -25,17 +26,19 @@ interface ButtonProps {
   style?: BUTTON_STYLE;
   size?: BUTTON_SIZE;
   to?: string;
+  text: string;
+  icon?: string;
   onClick?: () => void;
-  children: React.ReactNode;
 }
 
 export default function Button({
   type = BUTTON_TYPE.BUTTON,
   style = BUTTON_STYLE.SOLID_SECONDARY,
   size = BUTTON_SIZE.NORMAL,
+  text,
+  icon,
   to = "",
   onClick,
-  children,
 }: ButtonProps) {
   const cssButtonSize = () => {
     switch (size) {
@@ -52,8 +55,11 @@ export default function Button({
     switch (style) {
       case BUTTON_STYLE.SOLID_PRIMARY:
         return button.solid__primary;
+      case BUTTON_STYLE.SOLID_DANGER:
+        return button.solid__danger;
       case BUTTON_STYLE.TEXT:
         return button.text;
+      case BUTTON_STYLE.SOLID_SECONDARY:
       default:
         return button.solid__secondary;
     }
@@ -63,24 +69,34 @@ export default function Button({
     return [button.button, cssButtonSize(), cssButtonStyle()].join(" ");
   };
 
+  const getIcon = () => {
+    if (icon) {
+      return <i className={icon + " " + button.icon} />;
+    }
+    return null;
+  };
+
   switch (type) {
     case BUTTON_TYPE.LINK:
       return (
         <Link to={to} className={getClassName()}>
-          {children}
+          {getIcon()}
+          {text}
         </Link>
       );
     case BUTTON_TYPE.SUBMIT:
       return (
         <button type="submit" className={getClassName()}>
-          {children}
+          {getIcon()}
+          {text}
         </button>
       );
     case BUTTON_TYPE.BUTTON:
     default:
       return (
         <button onClick={onClick} className={getClassName()}>
-          {children}
+          {getIcon()}
+          {text}
         </button>
       );
   }

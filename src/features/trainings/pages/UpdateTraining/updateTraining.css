@@ -1,0 +1,5 @@
+.update-training-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--section-board-padding);
+}

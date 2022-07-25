@@ -1,17 +1,17 @@
 import { Route, Routes } from "react-router-dom";
 import { PRIVATE_SECTION, ROUTES } from "./config/routes";
-import AddExercise from "./features/exercises/pages/AddExercise";
+import AddExercise from "./features/exercises/pages/AddExercise/AddExercise";
 import ExerciseDetail from "./features/exercises/pages/ExerciseDetail/ExerciseDetail";
 import Exercises from "./features/exercises/pages/Exercises/Exercises";
-import UpdateExercise from "./features/exercises/pages/UpdateExercise";
+import UpdateExercise from "./features/exercises/pages/UpdateExercise/UpdateExercise";
 import Login from "./features/login/pages/Login/Login";
 import Logout from "./features/login/pages/Logout";
 import PrivateRoute from "./features/login/router/PrivateRoute";
 import PublicRoute from "./features/login/router/PublicRoute";
-import AddTraining from "./features/trainings/pages/AddTraining";
-import TrainingDetail from "./features/trainings/pages/TrainingDetail";
-import Trainings from "./features/trainings/pages/Trainings";
-import UpdateTraining from "./features/trainings/pages/UpdateTraining";
+import AddTraining from "./features/trainings/pages/AddTraining/AddTraining";
+import TrainingDetail from "./features/trainings/pages/TrainingDetail/TrainingDetail";
+import Trainings from "./features/trainings/pages/Trainings/Trainings";
+import UpdateTraining from "./features/trainings/pages/UpdateTraining/UpdateTraining";
 
 export default function App() {
   return (
