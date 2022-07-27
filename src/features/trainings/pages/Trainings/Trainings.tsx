@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { ROUTES } from "../../../../config/routes";
 import { Button, Card } from "../../../../ui";
 import { BUTTON_STYLE, BUTTON_TYPE } from "../../../../ui/Button/Button";
