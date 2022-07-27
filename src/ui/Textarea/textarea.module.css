@@ -5,7 +5,7 @@
   border-radius: var(--default-radius);
   outline: none;
   border: 2px solid #ddd;
-  color: var(--default-font-color);
+  color: var(--font-color-primary);
   width: 100%;
 }
 

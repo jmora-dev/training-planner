@@ -24,14 +24,14 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  color: var(--default-font-color);
+  color: var(--font-color-secondary);
   border-radius: var(--default-radius);
 }
 
 .menu-item:hover,
 .menu-item:focus {
-  color: rgb(85, 26, 139);
-  background-color: rgba(120, 56, 181, 0.2);
+  color: rgb(255, 159, 23);
+  background-color: rgba(255, 183, 81, 0.2);
 }
 
 .menu-item-text {
@@ -41,7 +41,7 @@
 }
 
 .menu-divider {
-  border-top: 1px solid #eee;
+  border-color: rgb(68, 62, 62);
   margin: 0;
   padding: 0;
 }

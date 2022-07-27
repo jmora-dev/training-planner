@@ -2,16 +2,22 @@
   display: flex;
 }
 
+.private-layout__logo {
+  width: 130px;
+}
+
 .private-layout__sidebar {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  padding-top: 2rem;
+  width: 140px;
+  padding-top: 0.5rem;
 }
 
 .private-layout__main {
   flex-grow: 1;
   background-color: var(--background-primary-color);
-  margin: 2rem 1.5rem 0 0;
   padding: 1.5rem;
-  border-radius: var(--default-radius) var(--default-radius) 0 0;
+  margin-left: 140px;
+  min-height: 100vh;
 }

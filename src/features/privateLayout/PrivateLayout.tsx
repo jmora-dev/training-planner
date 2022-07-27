@@ -1,6 +1,8 @@
 import { ROUTES } from "../../config/routes";
 import { Sidebar } from "../../ui";
 import "./privateLayout.css";
+// import mainImg from "../../../images/djinn.png";
+import mainImg from "../../images/djinn.png";
 
 interface PrivateLayoutProps {
   children: React.ReactNode;
@@ -11,6 +13,7 @@ export default function PrivateLayout({ children }: PrivateLayoutProps) {
   return (
     <div className="private-layout">
       <div className="private-layout__sidebar">
+        <img src={mainImg} alt="logo" className="private-layout__logo" />
         <Sidebar>
           <Sidebar.Menu>
             <Sidebar.MenuDividersItem />
