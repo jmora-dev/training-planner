@@ -1,8 +1,15 @@
 :root {
-  --default-radius: 0.3rem;
-  --default-font-color: rgba(0, 0, 0, 0.87);
-  --background-primary-color: rgb(227, 242, 253);
+  --default-radius: 0.5rem;
+  --font-color-primary: rgba(0, 0, 0, 0.87);
+  /* --background-primary-color: rgb(247, 212, 183); */
+  --background-primary-color: rgb(62, 61, 60);
+  --font-color-secondary: rgba(255, 255, 255, 0.87);
+  --background-secondary-color: rgb(19, 21, 26);
   --section-board-padding: 1rem;
+}
+
+body {
+  background-color: var(--background-secondary-color);
 }
 
 * {

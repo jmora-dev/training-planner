@@ -1,8 +1,8 @@
 .card {
-  background-color: #fff;
+  background-color: rgb(241, 241, 241);
   overflow: hidden;
-  border-radius: 0.3em;
-  border: 1px solid rgba(144, 202, 249, 0.46);
+  border-radius: var(--default-radius);
+  border: 1px solid rgba(205, 193, 192, 0.46);
 }
 
 .card-section-title {
