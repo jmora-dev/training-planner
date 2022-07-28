@@ -1,9 +1,7 @@
-import React from "react";
 import { ROUTES } from "../../../../config/routes";
 import { Button } from "../../../../ui";
 import { BUTTON_STYLE, BUTTON_TYPE } from "../../../../ui/Button/Button";
 import { Training } from "../../interfaces/Training";
-import TrainingCard from "../TrainingCard/TrainingCard";
 import "./table.scss";
 import "./trainingList.css";
 
@@ -52,12 +50,5 @@ export default function TrainingsList({ trainings }: TrainingsListProps) {
         </table>
       </div>
     </div>
-    // <ul className="training-list">
-    //   {trainings.map((training) => (
-    //     <li key={training.id} className="training-list__item">
-    //       <TrainingCard training={training} />
-    //     </li>
-    //   ))}
-    // </ul>
   );
 }
