@@ -19,7 +19,7 @@ export default function PrivateLayout({ children }: PrivateLayoutProps) {
             <Sidebar.MenuDividersItem />
             <Sidebar.MenuLinkItem
               text="Entrenamientos"
-              icon="fa-solid fa-clipboard"
+              icon="fa-solid fa-clipboard-list"
               to={ROUTES.TRAININGS}
             />
             <Sidebar.MenuLinkItem

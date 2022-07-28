@@ -27,7 +27,7 @@ function MenuLinkItem({
   return (
     <li>
       <Link to={to} className={sidebar["menu-item"]}>
-        {icon && <i className={icon} />}
+        {icon && <i className={icon + " " + sidebar["menu-item-icon"]} />}
         <span className={sidebar["menu-item-text"]}>{text}</span>
       </Link>
     </li>
