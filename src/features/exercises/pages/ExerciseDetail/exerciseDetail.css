@@ -1,0 +1,22 @@
+.exercise-detail__exercise-data {
+  margin-bottom: 2rem;
+}
+
+.exercise-detail__text-block {
+  margin-bottom: 1rem;
+}
+
+.exercise-detail__label {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.exercise-detail__text {
+  margin: 0;
+}
+
+.exercise-detail__image-container {
+  display: grid;
+  place-content: center;
+}
