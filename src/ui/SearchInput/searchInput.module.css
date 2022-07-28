@@ -1,18 +1,17 @@
-.input {
+.search-input {
   display: block;
-  padding: 16.5px 14px;
   font-size: inherit;
   border-radius: var(--default-radius);
   outline: none;
   border: 2px solid #ddd;
   color: var(--font-color-primary);
-  width: 100%;
+  padding: 0 0.5rem;
 }
 
-.input:hover {
+.search-input:hover {
   border-color: #888;
 }
 
-.input:focus {
+.search-input:focus {
   border-color: var(--focus-color);
 }
