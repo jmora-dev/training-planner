@@ -50,12 +50,5 @@ export default function TrainingsList({ trainings }: TrainingsListProps) {
         </table>
       </div>
     </div>
-    // <ul className="training-list">
-    //   {trainings.map((training) => (
-    //     <li key={training.id} className="training-list__item">
-    //       <TrainingCard training={training} />
-    //     </li>
-    //   ))}
-    // </ul>
   );
 }
