@@ -1,0 +1,91 @@
+$screen-sm-min: 768px;
+$shadow: 0 2px 3px rgba(0, 0, 0, .2);
+$gray-border: darken(#f8f8f8, 10%);
+$gray-light: rgba(0, 0, 0, .35);
+$faded-yellow: lighten(#f1c40f, 40%);
+
+// thx, @HugoGiraudel
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@include scrollbars(.15em, slategray);
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+button.btn {
+  box-shadow: $shadow;
+  border: 0;
+  border-radius: 0px;
+  i {
+    margin-right: 3px;
+  }
+}
+
+  .card-list-table {
+    background: white;
+    tbody tr {
+      background: transparent;
+      box-shadow: none;
+      margin: 0;
+      &:nth-of-type(even) {
+        background: $gray-border;
+      }
+    }
+    thead {
+      display: table-header-group;
+      th:last-child {
+        box-shadow: none;
+      }
+      th {
+        border-bottom: 1px solid $gray-border;
+        padding: 12px 24px;
+      }
+    }
+    tbody {
+      tr {
+        display: table-row;
+        padding-bottom: 0;
+        &:nth-of-type(even) {
+          background: #fff;
+        }
+      }
+      td {
+        border-bottom: 1px solid $gray-border;
+        display: table-cell;
+        padding: 20px 24px;
+        transition: background .2s ease-out;
+        vertical-align: middle;
+        &:after {
+          display: none;
+        }
+        &:before {
+          content: '';
+        }
+      }
+    }
+  }
