@@ -30,8 +30,8 @@
 
 .menu-item:hover,
 .menu-item:focus {
-  color: rgb(255, 159, 23);
-  background-color: rgba(255, 183, 81, 0.2);
+  color: var(--focus-color);
+  background-color: var(--focus-background-color);
 }
 
 .menu-item-text {
