@@ -3,3 +3,7 @@
   grid-template-columns: 1fr;
   gap: 1rem;
 }
+
+.training-form__select-exercise-button {
+  margin-bottom: 0.5rem;
+}

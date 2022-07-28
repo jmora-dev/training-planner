@@ -1,6 +1,10 @@
 import { SyntheticEvent, useEffect, useState } from "react";
 import { Button, Input, Label, Textarea } from "../../../../ui";
-import { BUTTON_STYLE, BUTTON_TYPE } from "../../../../ui/Button/Button";
+import {
+  BUTTON_SIZE,
+  BUTTON_STYLE,
+  BUTTON_TYPE,
+} from "../../../../ui/Button/Button";
 import { INPUT_TYPE } from "../../../../ui/Input/Input";
 import { useExercises } from "../../../exercises/hooks/useExercises";
 import { Exercise } from "../../../exercises/interfaces/Exercise";
@@ -132,13 +136,16 @@ export default function TrainingForm({
           />
         </div>
         <div>
-          <Button
-            type={BUTTON_TYPE.BUTTON}
-            style={BUTTON_STYLE.TEXT}
-            onClick={() => setExerciseSelectorVisible(true)}
-            text="Navegar"
-            icon=""
-          />
+          <div className="training-form__select-exercise-button">
+            <Button
+              type={BUTTON_TYPE.BUTTON}
+              style={BUTTON_STYLE.SOLID_PRIMARY}
+              size={BUTTON_SIZE.NORMAL}
+              onClick={() => setExerciseSelectorVisible(true)}
+              text="Seleccionar ejercicios"
+              icon=""
+            />
+          </div>
           <SelectedExercises exercises={selectedExercises} />
         </div>
         <Button
