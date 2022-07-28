@@ -46,7 +46,7 @@ export default function TrainingForm({
         exercises.filter((exercise) => data.exercises.includes(exercise.id!))
       );
     }
-  }, [data.exercises, exercises]);
+  }, [data, exercises]);
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();

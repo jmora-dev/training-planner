@@ -32,6 +32,7 @@ export default function LoginForm({ onSignIn }: LoginFormProps) {
       <div className="login-form__input-group">
         <Label htmlFor="email">Email:</Label>
         <Input
+          id="email"
           inputType={INPUT_TYPE.EMAIL}
           name="email"
           value={data.email}
@@ -41,6 +42,7 @@ export default function LoginForm({ onSignIn }: LoginFormProps) {
       <div className="login-form__input-group">
         <Label htmlFor="password">Contraseña:</Label>
         <Input
+          id="password"
           inputType={INPUT_TYPE.PASSWORD}
           name="password"
           value={data.password}

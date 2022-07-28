@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { Training } from "../interfaces/Training";
 import { trainingsActionsCreators } from "../reducer/trainingsActionsCreators";
-import { api } from "../services/firebaseApi";
+import { api } from "../services/trainingsFirebaseApi";
 
 export function useTrainings() {
   const { token } = useSelector((state: RootState) => state.login);
