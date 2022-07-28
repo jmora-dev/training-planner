@@ -1,0 +1,17 @@
+.training-detail__exercise-data {
+  margin-bottom: 2rem;
+}
+
+.training-detail__text-block {
+  margin-bottom: 1rem;
+}
+
+.training-detail__label {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.training-detail__text {
+  margin: 0;
+}
