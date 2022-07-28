@@ -5,7 +5,7 @@ import ExerciseDetail from "./features/exercises/pages/ExerciseDetail/ExerciseDe
 import Exercises from "./features/exercises/pages/Exercises/Exercises";
 import UpdateExercise from "./features/exercises/pages/UpdateExercise/UpdateExercise";
 import Login from "./features/login/pages/Login/Login";
-import Logout from "./features/login/pages/Logout";
+import Logout from "./features/login/pages/Logout/Logout";
 import PrivateRoute from "./features/login/router/PrivateRoute";
 import PublicRoute from "./features/login/router/PublicRoute";
 import AddTraining from "./features/trainings/pages/AddTraining/AddTraining";

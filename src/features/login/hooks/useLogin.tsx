@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { loginActionsCreators } from "../reducer/loginActionsCreators";
-import { api } from "../services/firebaseApi";
+import { api } from "../services/loginFirebaseApi";
 
 export function useLogin() {
   const { authenticated } = useSelector((state: RootState) => state.login);

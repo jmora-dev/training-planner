@@ -7,6 +7,7 @@ export enum INPUT_TYPE {
 }
 
 interface InputTypeProps {
+  id?: string;
   inputType?: INPUT_TYPE;
   name: string;
   value: string;
@@ -14,6 +15,7 @@ interface InputTypeProps {
 }
 
 export default function Input({
+  id,
   inputType = INPUT_TYPE.TEXT,
   value,
   name,
@@ -25,6 +27,7 @@ export default function Input({
 
   return (
     <input
+      id={id}
       type={inputType}
       value={value}
       name={name}
